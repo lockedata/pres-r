@@ -1,0 +1,41 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+# Administer R
+## Infrastructure
+>- Windows or Linux?
+>- Linux!
+>- Because ...
+>- RStudio Server
+>- System Dependencies
+
+## Infrastructure
+- High RAM
+- CPU should be decent
+- Physical storage can be low
+- Virus scanning not a problem
+- AD auth (fairly simple)
+- File share availability
+- Backups or scripted builds?
+
+## R
+>- Microsoft R or base R?
+>- It depends!
+>- Need cutting edge R & packages?
+>- Need extra computational speed or connectors?
+
+## R & Packages
+- Regular updates required
+- Unit tests of key behaviours should be done
+- Dev environments always a plus!
+- miniCRAN
+
+## Deployment
+- Ad-hoc facilities
+- Via Continuous Deployment
+
+## Next steps
+- Learn some [Linux fundamentals](http://linuxsurvival.com/)
+- Determine what sort of capacity requirements are needed

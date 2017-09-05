@@ -1,0 +1,132 @@
+---
+title: "Knowing your Rs from your elbow"
+author: "Steph Locke"
+date: "`r Sys.Date()`"
+output:
+  Rtraining::stephSlideStyle:
+    css: NULL
+  beamer_presentation:
+    template: main2.tex
+    theme: m
+    pandoc_args: [
+      "--latex-engine=xelatex"
+    ]
+---
+
+## Steph Locke | Not my Rs
+
+- Star of presentations such as "the LaTeX show"!
+- Principal consultant at Mango Solutions
+- Local user group leader
+- blog: [itsalocke.com](http://itsalocke.com)
+- t: [\@stefflocke](http://twitter.com/stefflocke)
+
+## What's this about Rs?
+- R is an open source language, made out of the ashes of S
+- It started off stats
+- Now has excellent graphics, .js, & doc facilities
+
+## Why should you know your Rs from your elbow?
+- Great analysis
+- Reclaim your time from Excel
+- Markdown!
+- Interactive data viz via js libraries
+- Fully CI/CD capable
+
+## What does R look like? | Basics
+```{r}
+#Define a variable
+a<-25
+
+#Call a variable
+a
+
+#Do something to it
+a+1
+```
+
+## What does R look like? | Functions
+```{r}
+#Define a function
+inflateAudienceFigs<-function(x) x*100
+
+#Call a function
+inflateAudienceFigs(a)
+```
+
+## What does R look like? | Extensions
+```{r, eval=FALSE }
+#Get a package
+install.packages("data.table")
+
+#Activate a package
+library(data.table)
+```
+
+<!--
+## What does R look like? | OO
+```{r, results='hide', echo=FALSE, warning=FALSE, message=FALSE}
+library("R6")
+```
+
+```{r}
+# Orig OO (s3): cyclismo.org/tutorial/R/s3Classes.html
+library(R6)
+Loan<-R6Class("Loan", 
+              public=list(term=NA
+                         ,initialize=function(term){
+                           if(!missing(term)){ 
+                              self$term<-term 
+                              }} 
+                         ,extendBy=function(ext){ 
+                            self$term<-self$term+ext
+                            }))
+```
+
+## What does R look like? | OO
+```{r}
+acc<-Loan$new(36)
+acc$extendBy(6)
+acc$term
+```
+-->
+## What does R look like? | Piping
+```{r, results='hide', echo=FALSE, warning=FALSE, message=FALSE}
+library(magrittr)
+```
+
+```{r, results='hide', eval=FALSE}
+library(magrittr)
+
+#Typical
+pairs(iris)
+
+#Pipe
+iris %>% pairs
+iris %>% tail(.) %>% pairs
+iris %>% {tail(.,nrow(.)/5)} %>% pairs
+```
+
+
+## Find out more
+
+### Online
+- Modern R [DataCamp](http://datacamp.com) 
+- Statistics R [Coursera](https://www.coursera.org/specialization/jhudatascience) 
+- [R-bloggers](http://www.r-bloggers.com/) 
+- [Advanced R programming](http://adv-r.had.co.nz/)
+- [Writing R packages](http://r-pkgs.had.co.nz/)
+
+
+### In-person
+- R user groups e.g. [CaRdiff](http://meetup.com/cardiff-r-user-group)
+- Conferences e.g. [EARL](http://www.earl-conference.com/), [SQL Relay](http://sqlrelay.co.uk)
+- Training days
+
+
+## Get this presentation
+This presentation is available on [github.com/stephlocke/Rtraining](https://github.com/stephlocke/Rtraining). All the code is available for you to take a copy and play with to help you learn on the go.
+
+If you have any questions, contact me! 
+
+[itsalocke.com](http://itsalocke.com) | [github.com/StephLocke](https://github.com/StephLocke) | [\@SteffLocke](https://twitter.com/stefflocke)

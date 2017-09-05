@@ -6,7 +6,23 @@ Description: Basic repo template for presentations.
 Depends:
     R (>= 3.1.2)
 Imports: 
-    revealjs
+    revealjs,
+    ggplot2,
+    data.table,
+    shiny,
+    R6,
+    caret,
+    foreach,
+    magrittr,
+    dplyr,
+    readr,
+    readxl,
+    RODBC,
+    leaflet,
+    dygraphs,
+    DiagrammeR,
+    plotly,
+    DT
 Suggests:
     knitr
 Remotes: 
