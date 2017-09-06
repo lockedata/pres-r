@@ -22,7 +22,9 @@ Imports:
     dygraphs,
     DiagrammeR,
     plotly,
-    DT
+    DT,
+    testthat,
+    devtools
 Suggests:
     knitr
 Remotes: 
