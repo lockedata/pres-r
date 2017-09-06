@@ -281,8 +281,6 @@ shinyApp(
 - [Show me Shiny!](http://www.showmeshiny.com/)
 - [Deploying shiny apps](http://shiny.rstudio.com/tutorial/lesson7/)
 
-```{r autodoc, child='../../generics/AboutMe.Rmd', eval=TRUE}
-```
 
 
 

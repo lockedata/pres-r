@@ -71,6 +71,3 @@ Create an ubuntu VM, run the following commands
 ## DEMO
 `git clone https://github.com/rstudio/shiny-examples`
 
-## About Me
-```{r autodoc, child='../../generics/AboutMe.Rmd', eval=TRUE}
-```

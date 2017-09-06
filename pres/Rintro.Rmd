@@ -9,8 +9,6 @@ output:
 ```{r autodoc, child='subDocs/Objective.Rmd', eval=TRUE}
 ```
 
-```{r autodoc, child='../../generics/AboutMe.Rmd', eval=TRUE}
-```
 
 ```{r autodoc, child='subDocs/Scenario.Rmd', eval=TRUE}
 ```
