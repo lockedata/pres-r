@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Steph Locke">
+  <meta name="dcterms.date" content="2017-09-06">
+  <title>Intro to R</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="Rintro_files/revealjs/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="Rintro_files/revealjs/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="lockedata.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'Rintro_files/revealjs/css/print/pdf.css' : 'Rintro_files/revealjs/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="Rintro_files/revealjs/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Intro to R</h1>
+  <h2 class="author">Steph Locke</h2>
+  <h3 class="date">2017-09-06</h3>
+</section>
+
+<section id="objective" class="slide level2">
+<h1>Objective</h1>
+<p>Learn about R and do useful day-job stuff with it</p>
+<h3 id="sub-objectives">Sub-objectives</h3>
+<ul>
+<li>Install R</li>
+<li>Connect to database using <code>RODBC</code></li>
+<li>Manipulate and summarise data using <code>data.table</code></li>
+<li>Visualise your data using <code>ggplot2</code></li>
+<li>Present your data using <code>rmarkdown</code> and <code>knitr</code></li>
+<li>Produce a report using <code>shiny</code></li>
+</ul>
+</section>
+<section id="scenario" class="slide level2 columns-2">
+<h1>Scenario</h1>
+<p><img src="https://github.com/stephlocke/lazyCDN/blob/master/PointyHairedBoss.jpg?raw=true" alt="Pointy Haired Boss" /></p>
+<p>I’ve heard about this new thing called R. Apparently everyone’s using it so we need to. Make me something using it, by tomorrow!</p>
+</section>
+<section id="step-1-google-what-is-r" class="slide level2">
+<h1>Step 1: Google “What is R?”</h1>
+<p>I <a href="http://lmgtfy.com/?q=what+is+r">Google</a> frantically and find out…</p>
+<ul>
+<li>R (birthed out of S) has been around for ages</li>
+<li>Has <a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">massively increased in popularity</a></li>
+<li>Lots of big players like SAP, TIBCO, and Oracle have implemented it</li>
+<li>Microsoft are catching up quick!</li>
+<li>It’s statistician heaven</li>
+<li>It produces very pretty charts</li>
+<li>Huh, you can make <a href="http://stackoverflow.com/questions/12675147/how-can-we-make-xkcd-style-graphs-in-r">XKCD cartoons in it</a>?</li>
+</ul>
+<p>Eep, but I’m not a stats bod or a programmer, what will I do? Do my usual stuff, but swisher!</p>
+</section>
+<section id="step-2-get-r-installed" class="slide level2">
+<h1>Step 2: Get R installed</h1>
+<p>OK, I need to get this thing called R installed on my laptop!</p>
+<ul>
+<li>Install R from <a href="http://www.r-project.org/">r-project.org</a> myself</li>
+<li>Jump on IT’s desk until they install Rstudio via <a href="http://www.rstudio.com">Rstudio.com</a> for me</li>
+<li>Use R to nab some useful packages</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(
+  <span class="st">&quot;RODBC&quot;</span>,      <span class="co"># Database access</span>
+  <span class="st">&quot;data.table&quot;</span>, <span class="co"># Table manipulation</span>
+  <span class="st">&quot;ggplot2&quot;</span>,    <span class="co"># Charting</span>
+  <span class="st">&quot;scales&quot;</span>,     <span class="co"># Scale manipulations</span>
+  <span class="st">&quot;rmarkdown&quot;</span>,  <span class="co"># Presentation writing</span>
+  <span class="st">&quot;knitr&quot;</span>,      <span class="co"># Presentation production</span>
+  <span class="st">&quot;shiny&quot;</span>       <span class="co"># Reporting</span>
+  ))</code></pre></div>
+</section>
+<section id="step-3-connect-to-the-database" class="slide level2">
+<h1>Step 3: Connect to the database</h1>
+<p>I’ll report on global bike sales from our company’s database</p>
+<ul>
+<li><a href="http://bit.ly/1jrl7V6">Database provided by Redgate, hosted on Azure</a></li>
+<li>Use your relevant driver (often the one you’ll use in Excel) data</li>
+<li>You can also connect to hundreds of other data stores like Excel</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="establishing-a-connection">Establishing a connection</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Getting data</span>
+<span class="kw">library</span>(<span class="st">&quot;RODBC&quot;</span>)
+
+<span class="co"># Manipulating data</span>
+<span class="kw">library</span>(<span class="st">&quot;data.table&quot;</span>)
+
+<span class="co"># Build a connection to the DB for reuse</span>
+<span class="co"># Driver names can vary eg </span>
+<span class="co"># {ODBC Driver 11 for SQL Server}</span>
+azure &lt;-<span class="st"> </span><span class="kw">odbcDriverConnect</span>(
+          <span class="st">&quot;Driver={SQL Server Native Client 11.0};</span>
+<span class="st">          Server=mhknbn2kdz.database.windows.net;</span>
+<span class="st">          Database=AdventureWorks2012;</span>
+<span class="st">          Uid=sqlfamily;</span>
+<span class="st">          Pwd=sqlf@m1ly;&quot;</span>)</code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="getting-our-starting-data">Getting our starting data</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Order    &lt;-<span class="st"> </span><span class="kw">data.table</span>( <span class="kw">sqlQuery</span>( azure, 
+         <span class="st">&quot;SELECT * FROM [Sales].[SalesOrderHeader]&quot;</span>))
+
+Territory&lt;-<span class="st"> </span><span class="kw">data.table</span>( <span class="kw">sqlQuery</span>( azure, 
+         <span class="st">&quot;SELECT * FROM [Sales].[SalesTerritory]&quot;</span>))
+
+Region   &lt;-<span class="st"> </span><span class="kw">data.table</span>( <span class="kw">sqlQuery</span>( azure, 
+         <span class="st">&quot;SELECT * FROM [Person].[CountryRegion]&quot;</span>))</code></pre></div>
+</section>
+<section id="step-4-create-big-dataset" class="slide level2">
+<h1>Step 4: Create big dataset</h1>
+<p>Hmm, I need to put all the data into a “flat-file” view</p>
+<pre><code>DT[i, j, by]
+DT[WHERE | JOIN | ORDER , 
+  SELECT | UPDATE , 
+  GROUP][...]</code></pre>
+<ul>
+<li>Set “primary keys” with <code>setkey</code></li>
+<li>Join in format <code>Y[X]</code> to join Y on to X</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="join-territory-to-the-order">Join Territory to the Order</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Specify the columns to join by</span>
+<span class="kw">setkey</span>(Order     , TerritoryID)
+<span class="kw">setkey</span>(Territory , TerritoryID)
+
+<span class="co"># Reads as join Territory to the Order table</span>
+<span class="co"># Seperate table so we don&#39;t have to start again</span>
+OrderTerritory &lt;-<span class="st"> </span>Territory[Order]</code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="join-region-to-the-orderterritory">Join Region to the OrderTerritory</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Specify the columns to join by</span>
+<span class="kw">setkey</span>(OrderTerritory , CountryRegionCode)
+<span class="kw">setkey</span>(Region         , CountryRegionCode)
+
+<span class="co"># Reads as join Region to the OrderTerritory table</span>
+<span class="co"># Will overwrite as it&#39;s our desired state</span>
+OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre></div>
+</section>
+<section id="step-5-summarise-data" class="slide level2">
+<h1>Step 5: Summarise data</h1>
+<p>OK, let’s produce some tables!</p>
+<ul>
+<li>Lots of functionality, but kept quite simple here</li>
+<li>Read <a href="https://rawgit.com/wiki/Rdatatable/data.table/vignettes/datatable-intro-vignette.html">data.table intro</a> for a great in-depth introduction</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="basic-summary">Basic summary</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">OrderTerritory[  , <span class="co">#Nothing in 1st position</span>
+               .( <span class="dt">Value  =</span> <span class="kw">sum</span>(TotalDue) ,
+                  <span class="dt">Volume =</span> .N ), <span class="co"># Aggregations</span>
+               by =<span class="st"> </span>Name <span class="co"># Group by, no alias</span>
+               ]</code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="basic-summary-1">Basic summary</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Name</th>
+<th style="text-align: right;">Value</th>
+<th style="text-align: right;">Volume</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Australia</td>
+<td style="text-align: right;">5985718</td>
+<td style="text-align: right;">3419</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Canada</td>
+<td style="text-align: right;">8465891</td>
+<td style="text-align: right;">2049</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Germany</td>
+<td style="text-align: right;">2660008</td>
+<td style="text-align: right;">1296</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">France</td>
+<td style="text-align: right;">4042225</td>
+<td style="text-align: right;">1362</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">United Kingdom</td>
+<td style="text-align: right;">4119535</td>
+<td style="text-align: right;">1610</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">United States</td>
+<td style="text-align: right;">35057232</td>
+<td style="text-align: right;">5996</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="top-5-sales-ever">Top 5 sales ever</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">OrderTerritory[<span class="kw">order</span>(-TotalDue)[<span class="dv">1</span>:<span class="dv">5</span>],
+               <span class="co"># Picks first 5 rows of TotalDue desc</span>
+               .( SalesOrderNumber, <span class="co"># multi-select</span>
+                  AccountNumber,
+                  <span class="dt">Region=</span>Name, <span class="co"># Aliasing colum</span>
+                  TotalDue,
+                  OrderDate
+                  )
+               ]</code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="top-5-sales-ever-1">Top 5 sales ever</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">SalesOrderNumber</th>
+<th style="text-align: left;">AccountNumber</th>
+<th style="text-align: left;">Region</th>
+<th style="text-align: right;">TotalDue</th>
+<th style="text-align: left;">OrderDate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">SO3737</td>
+<td style="text-align: left;">10-4020-000072</td>
+<td style="text-align: left;">United States</td>
+<td style="text-align: right;">165028.7</td>
+<td style="text-align: left;">2006-09-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SO3711</td>
+<td style="text-align: left;">10-4020-000239</td>
+<td style="text-align: left;">United States</td>
+<td style="text-align: right;">158056.5</td>
+<td style="text-align: left;">2006-09-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SO3697</td>
+<td style="text-align: left;">10-4020-000024</td>
+<td style="text-align: left;">United States</td>
+<td style="text-align: right;">145741.9</td>
+<td style="text-align: left;">2006-09-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SO8164</td>
+<td style="text-align: left;">10-4020-000546</td>
+<td style="text-align: left;">United States</td>
+<td style="text-align: right;">145454.4</td>
+<td style="text-align: left;">2007-08-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SO13492</td>
+<td style="text-align: left;">10-4020-000085</td>
+<td style="text-align: left;">France</td>
+<td style="text-align: right;">137721.3</td>
+<td style="text-align: left;">2007-11-01</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="top-sale-ever-for-each-region">Top sale ever for each region</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">OrderTerritory[  ,
+               .SD[<span class="kw">which.max</span>(TotalDue),
+               <span class="co"># .SD is subset of rows within group</span>
+               
+               <span class="co"># which.max() returns row </span>
+               <span class="co"># no of largest val</span>
+                   .( SalesOrderNumber,
+                      AccountNumber,
+                      TotalDue,
+                      OrderDate
+                    )
+                   ],
+               by=.(<span class="dt">Region=</span>Name)
+               <span class="co">#Aliasing in groupung</span>
+               ]</code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="top-sale-ever-for-each-region-1">Top sale ever for each region</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Region</th>
+<th style="text-align: left;">SalesOrderNumber</th>
+<th style="text-align: left;">AccountNumber</th>
+<th style="text-align: right;">TotalDue</th>
+<th style="text-align: left;">OrderDate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Australia</td>
+<td style="text-align: left;">SO9908</td>
+<td style="text-align: left;">10-4020-000015</td>
+<td style="text-align: right;">71729.86</td>
+<td style="text-align: left;">2007-09-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Canada</td>
+<td style="text-align: left;">SO2949</td>
+<td style="text-align: left;">10-4020-000227</td>
+<td style="text-align: right;">135606.68</td>
+<td style="text-align: left;">2006-07-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Germany</td>
+<td style="text-align: left;">SO11596</td>
+<td style="text-align: left;">10-4020-000302</td>
+<td style="text-align: right;">117506.12</td>
+<td style="text-align: left;">2007-10-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">France</td>
+<td style="text-align: left;">SO13492</td>
+<td style="text-align: left;">10-4020-000085</td>
+<td style="text-align: right;">137721.31</td>
+<td style="text-align: left;">2007-11-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">United Kingdom</td>
+<td style="text-align: left;">SO9915</td>
+<td style="text-align: left;">10-4020-000502</td>
+<td style="text-align: right;">130249.26</td>
+<td style="text-align: left;">2007-09-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">United States</td>
+<td style="text-align: left;">SO3737</td>
+<td style="text-align: left;">10-4020-000072</td>
+<td style="text-align: right;">165028.75</td>
+<td style="text-align: left;">2006-09-01</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="step-6-make-some-charts" class="slide level2">
+<h1>Step 6: Make some charts</h1>
+<p>I need to make some pretties!</p>
+<ul>
+<li>Using <code>ggplot2</code> as much easier than base graphics</li>
+<li>Simple structure = chart(data, axis &amp; series) + chart types + formatting</li>
+<li>No secondary axes as considered bad visualisation, use <code>optiRum::multiplot()</code></li>
+<li>Easy trellis / small multiple charts</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="basic-chart-volumes">Basic chart – volumes</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="kw">ggplot</span>(OrderTerritory                 <span class="co"># dataset</span>
+       ,<span class="kw">aes</span>(<span class="dt">x=</span>Name, <span class="dt">y=</span>..count..))+<span class="st">    </span><span class="co"># values</span>
+<span class="st">  </span><span class="kw">geom_bar</span>()+<span class="st">                         </span><span class="co"># chart type</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>()+<span class="st">                    </span><span class="co"># themeing</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Region&quot;</span>,<span class="dt">title=</span><span class="st">&quot;All time sales volumes&quot;</span>)</code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="basic-chart-volumes-1">Basic chart – volumes</h3>
+<p><img src="Rintro_files/figure-revealjs/chartone-1.png" width="768" /></p>
+</section>
+<section class="slide level2">
+
+<h3 id="basic-chart-value">Basic chart – value</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(scales)
+
+<span class="kw">ggplot</span>(OrderTerritory               
+       ,<span class="kw">aes</span>(<span class="dt">x=</span>Name, <span class="dt">y=</span>TotalDue))+<span class="st">    </span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)+<span class="st">         </span><span class="co"># use value</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>()+<span class="st">                   </span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">label=</span>dollar)+<span class="st">  </span><span class="co"># customisation</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Region&quot;</span>,<span class="dt">title=</span><span class="st">&quot;All time sales value&quot;</span>)</code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="basic-chart-value-1">Basic chart – value</h3>
+<p><img src="Rintro_files/figure-revealjs/charttwo-1.png" width="768" /></p>
+</section>
+<section class="slide level2">
+
+<h3 id="trellis-chart-value">Trellis chart – value</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(OrderTerritory
+       ,<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">year</span>(OrderDate), <span class="dt">y=</span>TotalDue, 
+            <span class="dt">colour=</span>Name))+<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)+
+<span class="st">  </span><span class="kw">theme_minimal</span>()+<span class="st">                  </span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">label=</span>dollar)+<span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(~Name,<span class="dt">ncol =</span> <span class="dv">2</span>) +<span class="st">   </span><span class="co"># trellis</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Order Year&quot;</span>)</code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="trellis-chart-value-1">Trellis chart – value</h3>
+<p><img src="Rintro_files/figure-revealjs/chartthree-1.png" width="768" /></p>
+</section>
+<section id="step-7-produce-presentation" class="slide level2">
+<h1>Step 7: Produce presentation</h1>
+<p>I need a slide deck for the boss to take use!</p>
+<ul>
+<li>Use <code>rmarkdown</code> to produce <code>SamplePresentation.Rmd</code></li>
+<li>Really light syntax, same as <a href="http://stackoverflow">Stack Overflow</a></li>
+<li>Customisable via CSS</li>
+<li>Create slides (html or PDF) or docs (html, PDF, Word)</li>
+<li>Use a modular design</li>
+<li>Re-knit to get latest data</li>
+</ul>
+</section>
+<section id="step-8-produce-report" class="slide level2">
+<h1>Step 8: Produce report</h1>
+<p>I need a report for people to play with</p>
+<ul>
+<li>Use <code>shiny</code> to produce interactive online reports</li>
+<li>Can host locally (for other R users)</li>
+<li>Can use a server (for internal users, uses Linux)</li>
+<li>Can use a hosting platform like <a href="https://www.shinyapps.io/">shinyapps.io</a></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;shiny&quot;</span>)
+
+<span class="co">#Run the shiny app (app.R) in the current folder</span>
+<span class="kw">runApp</span>(<span class="st">&quot;.&quot;</span>)</code></pre></div>
+</section>
+<section id="conclusion" class="slide level2 columns-2">
+<h1>Conclusion</h1>
+<p><img src="https://github.com/stephlocke/lazyCDN/blob/master/PointyHairedBoss.jpg?raw=true" alt="Pointy Haired Boss" /></p>
+<p>Phew, he’s got something to show to the Board &amp; a web page he can play with all day long.</p>
+<p>We learnt along the way:</p>
+<ul>
+<li>connect to our data using <code>RODBC</code></li>
+<li>manipulate it with <code>data.table</code></li>
+<li>chart it with <code>ggplot2</code></li>
+<li>make documents with <code>rmarkdown</code></li>
+<li>produce interactive reports using <code>shiny</code></li>
+</ul>
+<p>Not bad for a day’s work!</p>
+</section>
+<section id="where-next" class="slide level2 smaller">
+<h1>Where next?</h1>
+<p>OK, some basics covered but where to go from here? (<code>F</code>= Free, <code>*</code>=Discount, <code>HO</code>=Hands on)</p>
+<h3 id="online">Online</h3>
+<ul>
+<li>Modern R <a href="http://datacamp.com">DataCamp</a> <code>F/*  HO</code></li>
+<li>Statistics R <a href="https://www.coursera.org/specialization/jhudatascience">Coursera</a> <code>F HO</code></li>
+<li><a href="http://www.r-bloggers.com/">R-bloggers</a> <code>F</code></li>
+<li><a href="http://adv-r.had.co.nz/">Advanced R programming</a> <code>F</code></li>
+<li><a href="http://r-pkgs.had.co.nz/">Writing R packages</a> <code>F</code></li>
+</ul>
+<h3 id="in-person">In-person</h3>
+<ul>
+<li>R user groups <code>F</code></li>
+<li>Training courses e.g. <a href="mailto://training@mango-solutions.com">Mango</a> <code>*</code></li>
+<li>Conferences e.g. <a href="http://sqlrelay.co.uk">SQL Relay</a> <code>F HO</code></li>
+</ul>
+</section>
+<section id="get-this-presentation" class="slide level2">
+<h1>Get this presentation</h1>
+<p>This presentation is available on <a href="https://github.com/stephlocke/Rtraining">github.com/stephlocke/Rtraining</a>. All the code is available for you to take a copy and play with to help you learn on the go.</p>
+<p>If you have any questions, contact me!</p>
+<p><a href="http://itsalocke.com">itsalocke.com</a> | <a href="https://github.com/StephLocke">github.com/StephLocke</a> | <a href="https://twitter.com/stefflocke">@SteffLocke</a></p>
+</section>
+    </div>
+  </div>
+
+  <script src="Rintro_files/revealjs/lib/js/head.min.js"></script>
+  <script src="Rintro_files/revealjs/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: '1920',
+        height: '1080',
+        // Factor of the display size that should remain empty around the content
+        margin: '0.05',
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'Rintro_files/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'Rintro_files/revealjs/plugin/zoom-js/zoom.js', async: true },
+          { src: 'Rintro_files/revealjs/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

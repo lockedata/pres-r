@@ -304,16 +304,510 @@ List of 4
  $ results: chr "hide"
  $ warning: logi FALSE
 
-Quitting from lines 44-62 (./subDocs/Database.Rmd) 
-Quitting from lines NA-62 (./subDocs/Database.Rmd) 
-Error in fread(system.file("extdata", "Order.csv", package = "Rtraining")) : 
-  Input is either empty or fully whitespace after the skip or autostart. Run again with verbose=TRUE.
-Calls: render ... withCallingHandlers -> withVisible -> eval -> eval -> fread
-In addition: Warning messages:
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |....................................                             |  56%
+label: autodoc (with options) 
+List of 2
+ $ child: chr "subDocs/Dataset.Rmd"
+ $ eval : logi TRUE
+
+
+
+processing file: ./subDocs/Dataset.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |................                                                 |  25%
+  ordinary text without R code
+
+  |                                                                         |................................                                 |  50%
+label: d1 (with options) 
+List of 2
+ $ echo: logi TRUE
+ $ eval: logi TRUE
+
+  |                                                                         |.................................................                |  75%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: d2 (with options) 
+List of 2
+ $ echo: logi TRUE
+ $ eval: logi TRUE
+
+
+  |                                                                         |........................................                         |  61%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: autodoc (with options) 
+List of 2
+ $ child: chr "subDocs/Summarise.Rmd"
+ $ eval : logi TRUE
+
+
+
+processing file: ./subDocs/Summarise.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.....                                                            |   8%
+  ordinary text without R code
+
+  |                                                                         |...........                                                      |  17%
+label: agg1 (with options) 
+List of 2
+ $ echo: logi TRUE
+ $ eval: logi FALSE
+
+  |                                                                         |................                                                 |  25%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: firsttable (with options) 
+List of 2
+ $ echo: logi FALSE
+ $ eval: logi TRUE
+
+  |                                                                         |...........................                                      |  42%
+  ordinary text without R code
+
+  |                                                                         |................................                                 |  50%
+label: agg2 (with options) 
+List of 2
+ $ echo: logi TRUE
+ $ eval: logi FALSE
+
+  |                                                                         |......................................                           |  58%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: secondtable (with options) 
+List of 2
+ $ echo: logi FALSE
+ $ eval: logi TRUE
+
+  |                                                                         |.................................................                |  75%
+  ordinary text without R code
+
+  |                                                                         |......................................................           |  83%
+label: agg3 (with options) 
+List of 2
+ $ echo: logi TRUE
+ $ eval: logi FALSE
+
+  |                                                                         |............................................................     |  92%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: thirdtable (with options) 
+List of 2
+ $ echo: logi FALSE
+ $ eval: logi TRUE
+
+
+  |                                                                         |...............................................                  |  72%
+  ordinary text without R code
+
+  |                                                                         |...................................................              |  78%
+label: autodoc (with options) 
+List of 2
+ $ child: chr "subDocs/Visualisation.Rmd"
+ $ eval : logi TRUE
+
+
+
+processing file: ./subDocs/Visualisation.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.....                                                            |   8%
+  ordinary text without R code
+
+  |                                                                         |...........                                                      |  17%
+label: c1 (with options) 
+List of 3
+ $ echo   : logi TRUE
+ $ eval   : logi FALSE
+ $ results: chr "hide"
+
+  |                                                                         |................                                                 |  25%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: chartone (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ eval   : logi TRUE
+ $ results: chr "asis"
+
+  |                                                                         |...........................                                      |  42%
+  ordinary text without R code
+
+  |                                                                         |................................                                 |  50%
+label: c2 (with options) 
+List of 3
+ $ echo   : logi TRUE
+ $ eval   : logi FALSE
+ $ results: chr "hide"
+
+  |                                                                         |......................................                           |  58%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: charttwo (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ eval   : logi TRUE
+ $ results: chr "asis"
+
+  |                                                                         |.................................................                |  75%
+  ordinary text without R code
+
+  |                                                                         |......................................................           |  83%
+label: c3 (with options) 
+List of 3
+ $ echo   : logi TRUE
+ $ eval   : logi FALSE
+ $ results: chr "hide"
+
+  |                                                                         |............................................................     |  92%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: chartthree (with options) 
+List of 3
+ $ echo   : logi FALSE
+ $ eval   : logi TRUE
+ $ results: chr "asis"
+
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |..........................................................       |  89%
+label: autodoc (with options) 
+List of 2
+ $ child: chr "subDocs/Shiny.Rmd"
+ $ eval : logi TRUE
+
+
+
+processing file: ./subDocs/Shiny.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: unnamed-chunk-3 (with options) 
+List of 2
+ $ eval: logi FALSE
+ $ echo: logi TRUE
+
+
+  |                                                                         |.............................................................    |  94%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: autodoc (with options) 
+List of 2
+ $ child: chr "subDocs/ClosingMatter.Rmd"
+ $ eval : logi TRUE
+
+
+
+processing file: ./subDocs/ClosingMatter.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+
+output file: Rintro.knit.md
+
+/usr/bin/pandoc +RTS -K512m -RTS Rintro.utf8.md --to revealjs --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --output /home/travis/build/lockedata/pres-r/docs/Rintro.html --smart --email-obfuscation none --template /home/travis/R/Library/revealjs/rmarkdown/templates/revealjs_presentation/resources/default.html --variable center=false --slide-level 2 --variable theme=simple --variable transition=default --variable backgroundTransition=default --variable history=true --variable "height='1080'" --variable "width='1920'" --variable "margin='0.05'" --css lockedata.css --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --variable revealjs-url=Rintro_files/revealjs --highlight-style pygments 
+
+Output created: docs/Rintro.html
+
+
+processing file: r101.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.                                                                |   2%
+   inline R code fragments
+
+  |                                                                         |...                                                              |   4%
+label: unnamed-chunk-1
+  |                                                                         |....                                                             |   6%
+  ordinary text without R code
+
+  |                                                                         |.....                                                            |   8%
+label: unnamed-chunk-2
+  |                                                                         |......                                                           |  10%
+  ordinary text without R code
+
+  |                                                                         |........                                                         |  12%
+label: unnamed-chunk-3
+  |                                                                         |.........                                                        |  14%
+  ordinary text without R code
+
+  |                                                                         |..........                                                       |  16%
+label: unnamed-chunk-4
+  |                                                                         |...........                                                      |  18%
+  ordinary text without R code
+
+  |                                                                         |.............                                                    |  20%
+label: unnamed-chunk-5
+  |                                                                         |..............                                                   |  22%
+  ordinary text without R code
+
+  |                                                                         |...............                                                  |  24%
+label: unnamed-chunk-6
+  |                                                                         |.................                                                |  25%
+  ordinary text without R code
+
+  |                                                                         |..................                                               |  27%
+label: unnamed-chunk-7
+  |                                                                         |...................                                              |  29%
+  ordinary text without R code
+
+  |                                                                         |....................                                             |  31%
+label: unnamed-chunk-8
+  |                                                                         |......................                                           |  33%
+  ordinary text without R code
+
+  |                                                                         |.......................                                          |  35%
+label: unnamed-chunk-9
+  |                                                                         |........................                                         |  37%
+  ordinary text without R code
+
+  |                                                                         |.........................                                        |  39%
+label: unnamed-chunk-10
+  |                                                                         |...........................                                      |  41%
+  ordinary text without R code
+
+  |                                                                         |............................                                     |  43%
+label: unnamed-chunk-11 (with options) 
+List of 1
+ $ eval: logi FALSE
+
+  |                                                                         |.............................                                    |  45%
+  ordinary text without R code
+
+  |                                                                         |...............................                                  |  47%
+label: unnamed-chunk-12 (with options) 
+List of 4
+ $ results: chr "hide"
+ $ echo   : logi FALSE
+ $ warning: logi FALSE
+ $ message: logi FALSE
+
+  |                                                                         |................................                                 |  49%
+  ordinary text without R code
+
+  |                                                                         |.................................                                |  51%
+label: unnamed-chunk-13
+  |                                                                         |..................................                               |  53%
+  ordinary text without R code
+
+  |                                                                         |....................................                             |  55%
+label: unnamed-chunk-14
+  |                                                                         |.....................................                            |  57%
+  ordinary text without R code
+
+  |                                                                         |......................................                           |  59%
+label: unnamed-chunk-15 (with options) 
+List of 4
+ $ results: chr "hide"
+ $ echo   : logi FALSE
+ $ warning: logi FALSE
+ $ message: logi FALSE
+
+
+Attaching package: 'magrittr'
+
+The following objects are masked from 'package:testthat':
+
+    equals, is_less_than, not
+
+  |                                                                         |........................................                         |  61%
+  ordinary text without R code
+
+  |                                                                         |.........................................                        |  63%
+label: unnamed-chunk-16 (with options) 
+List of 2
+ $ results: chr "hide"
+ $ eval   : logi FALSE
+
+  |                                                                         |..........................................                       |  65%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: unnamed-chunk-17 (with options) 
+List of 4
+ $ results: chr "hide"
+ $ echo   : logi FALSE
+ $ warning: logi FALSE
+ $ message: logi FALSE
+
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:data.table':
+
+    between, first, last
+
+The following object is masked from 'package:testthat':
+
+    matches
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+  |                                                                         |.............................................                    |  69%
+  ordinary text without R code
+
+  |                                                                         |..............................................                   |  71%
+label: unnamed-chunk-18
+  |                                                                         |...............................................                  |  73%
+  ordinary text without R code
+
+  |                                                                         |................................................                 |  75%
+label: unnamed-chunk-19 (with options) 
+List of 1
+ $ eval: logi FALSE
+
+  |                                                                         |..................................................               |  76%
+  ordinary text without R code
+
+  |                                                                         |...................................................              |  78%
+label: unnamed-chunk-20 (with options) 
+List of 1
+ $ eval: logi FALSE
+
+  |                                                                         |....................................................             |  80%
+  ordinary text without R code
+
+  |                                                                         |......................................................           |  82%
+label: unnamed-chunk-21 (with options) 
+List of 1
+ $ eval: logi FALSE
+
+  |                                                                         |.......................................................          |  84%
+  ordinary text without R code
+
+  |                                                                         |........................................................         |  86%
+label: unnamed-chunk-22 (with options) 
+List of 1
+ $ eval: logi FALSE
+
+  |                                                                         |.........................................................        |  88%
+  ordinary text without R code
+
+  |                                                                         |...........................................................      |  90%
+label: unnamed-chunk-23 (with options) 
+List of 1
+ $ eval: logi FALSE
+
+  |                                                                         |............................................................     |  92%
+  ordinary text without R code
+
+  |                                                                         |.............................................................    |  94%
+label: unnamed-chunk-24 (with options) 
+List of 1
+ $ eval: logi FALSE
+
+  |                                                                         |..............................................................   |  96%
+  ordinary text without R code
+
+  |                                                                         |................................................................ |  98%
+label: unnamed-chunk-25 (with options) 
+List of 3
+ $ echo      : logi TRUE
+ $ eval      : logi TRUE
+ $ fig.height: num 4
+
+  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+output file: r101.knit.md
+
+/usr/bin/pandoc +RTS -K512m -RTS r101.utf8.md --to revealjs --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --output /home/travis/build/lockedata/pres-r/docs/r101.html --smart --email-obfuscation none --template /home/travis/R/Library/revealjs/rmarkdown/templates/revealjs_presentation/resources/default.html --variable center=false --slide-level 2 --variable theme=simple --variable transition=default --variable backgroundTransition=default --variable history=true --variable "height='1080'" --variable "width='1920'" --variable "margin='0.05'" --css lockedata.css --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --variable revealjs-url=r101_files/revealjs --highlight-style pygments 
+
+Output created: docs/r101.html
+
+
+processing file: KnowingYourRsFromYourElbow.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |....                                                             |   6%
+   inline R code fragments
+
+  |                                                                         |........                                                         |  12%
+label: unnamed-chunk-1
+  |                                                                         |...........                                                      |  18%
+  ordinary text without R code
+
+  |                                                                         |...............                                                  |  24%
+label: unnamed-chunk-2
+  |                                                                         |...................                                              |  29%
+  ordinary text without R code
+
+  |                                                                         |.......................                                          |  35%
+label: unnamed-chunk-3 (with options) 
+List of 1
+ $ eval: logi FALSE
+
+  |                                                                         |...........................                                      |  41%
+  ordinary text without R code
+
+  |                                                                         |...............................                                  |  47%
+label: unnamed-chunk-4 (with options) 
+List of 4
+ $ results: chr "hide"
+ $ echo   : logi FALSE
+ $ warning: logi FALSE
+ $ message: logi FALSE
+
+  |                                                                         |..................................                               |  53%
+  ordinary text without R code
+
+  |                                                                         |......................................                           |  59%
+label: unnamed-chunk-5
+  |                                                                         |..........................................                       |  65%
+  ordinary text without R code
+
+  |                                                                         |..............................................                   |  71%
+label: unnamed-chunk-6
+  |                                                                         |..................................................               |  76%
+  ordinary text without R code
+
+  |                                                                         |......................................................           |  82%
+label: unnamed-chunk-7 (with options) 
+List of 4
+ $ results: chr "hide"
+ $ echo   : logi FALSE
+ $ warning: logi FALSE
+ $ message: logi FALSE
+
+  |                                                                         |.........................................................        |  88%
+  ordinary text without R code
+
+  |                                                                         |.............................................................    |  94%
+label: unnamed-chunk-8 (with options) 
+List of 2
+ $ results: chr "hide"
+ $ eval   : logi FALSE
+
+  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+output file: KnowingYourRsFromYourElbow.knit.md
+
+/usr/bin/pandoc +RTS -K512m -RTS KnowingYourRsFromYourElbow.utf8.md --to revealjs --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --output /home/travis/build/lockedata/pres-r/docs/KnowingYourRsFromYourElbow.html --smart --email-obfuscation none --template /home/travis/R/Library/revealjs/rmarkdown/templates/revealjs_presentation/resources/default.html --variable center=false --slide-level 2 --variable theme=simple --variable transition=default --variable backgroundTransition=default --variable history=true --variable "height='1080'" --variable "width='1920'" --variable "margin='0.05'" --css lockedata.css --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --variable revealjs-url=KnowingYourRsFromYourElbow_files/revealjs --highlight-style pygments 
+
+Output created: docs/KnowingYourRsFromYourElbow.html
+Warning messages:
 1: In odbcDriverConnect("Driver={SQL Server Native Client 11.0};\n          Server=mhknbn2kdz.database.windows.net;\n          Database=AdventureWorks2012;\n          Uid=sqlfamily;\n          Pwd=sqlf@m1ly;") :
   [RODBC] ERROR: state IM002, code 0, message [unixODBC][Driver Manager]Data source name not found, and no default driver specified
 2: In odbcDriverConnect("Driver={SQL Server Native Client 11.0};\n          Server=mhknbn2kdz.database.windows.net;\n          Database=AdventureWorks2012;\n          Uid=sqlfamily;\n          Pwd=sqlf@m1ly;") :
   ODBC connection failed
-
-
-Execution halted
+> 
+> proc.time()
+   user  system elapsed 
+ 16.921   0.457  17.237 
