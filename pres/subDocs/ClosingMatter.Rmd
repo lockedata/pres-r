@@ -10,7 +10,7 @@ OK, some basics covered but where to go from here? (```F```= Free, ```*```=Disco
 
 ### In-person
 - R user groups ```F```
-- Training courses e.g. [Mango](mailto://training@mango-solutions.com) ```*```
+- Training courses  ```*```
 - Conferences e.g. [SQL Relay](http://sqlrelay.co.uk)  ```F HO``` 
 
 ## Get this presentation

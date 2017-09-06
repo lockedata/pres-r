@@ -16,8 +16,7 @@ output:
 ## Steph Locke | Who I am
 
 - Data specialist
-- Principal Consultant \@ Mango Solutions
-- github: [stephlocke/Rtraining](http://github.com/stephlocke/Rtraining)
+- Locke Data
 - blog: [itsalocke.com](http://itsalocke.com)
 - t: [\@stefflocke](http://twitter.com/stefflocke)
 

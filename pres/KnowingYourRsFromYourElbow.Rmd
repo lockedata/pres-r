@@ -16,7 +16,7 @@ output:
 ## Steph Locke | Not my Rs
 
 - Star of presentations such as "the LaTeX show"!
-- Principal consultant at Mango Solutions
+- Locke Data
 - Local user group leader
 - blog: [itsalocke.com](http://itsalocke.com)
 - t: [\@stefflocke](http://twitter.com/stefflocke)
