@@ -64,7 +64,7 @@ I need a slide deck for the boss to take use!
 
 ## Conclusion { .columns-2 }
 
-![Pointy Haired Boss](`r imgURL("PointyHairedBoss.jpg")`)
+![Pointy Haired Boss](https://github.com/stephlocke/lazyCDN/blob/master/PointyHairedBoss.jpg?raw=true)
 
 Phew, he's got something to show to the Board & a web page he can play with all day long.
 
