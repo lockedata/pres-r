@@ -176,10 +176,75 @@ processing file: ./subDocs/DevelopR.Rmd
 
   |                                                                         |...........................................                      |  67%
 label: unnamed-chunk-3
-Quitting from lines 31-47 (./subDocs/DevelopR.Rmd) 
-Quitting from lines NA-51 (./subDocs/DevelopR.Rmd) 
-Error in library(testthat) : there is no package called 'testthat'
-Calls: render ... withCallingHandlers -> withVisible -> eval -> eval -> library
+  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                         |........................................................         |  87%
+  ordinary text without R code
+
+  |                                                                         |.............................................................    |  93%
+label: autodoc (with options) 
+List of 2
+ $ child: chr "subDocs/AdministerR.Rmd"
+ $ eval : logi TRUE
+
+
+
+processing file: ./subDocs/AdministerR.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+output file: RLearningCurve.knit.md
+
+/usr/bin/pandoc +RTS -K512m -RTS RLearningCurve.utf8.md --to revealjs --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --output /home/travis/build/lockedata/pres-r/docs/RLearningCurve.html --smart --email-obfuscation none --template /home/travis/R/Library/revealjs/rmarkdown/templates/revealjs_presentation/resources/default.html --variable center=false --slide-level 2 --variable theme=simple --variable transition=default --variable backgroundTransition=default --variable history=true --variable "height='1080'" --variable "width='1920'" --variable "margin='0.05'" --css lockedata.css --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --variable revealjs-url=RLearningCurve_files/revealjs --highlight-style pygments 
+
+Output created: docs/RLearningCurve.html
+
+
+processing file: Rintro.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |....                                                             |   6%
+   inline R code fragments
+
+  |                                                                         |.......                                                          |  11%
+label: autodoc (with options) 
+List of 2
+ $ child: chr "subDocs/Objective.Rmd"
+ $ eval : logi TRUE
+
+
+
+processing file: ./subDocs/Objective.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                         |...........                                                      |  17%
+  ordinary text without R code
+
+  |                                                                         |..............                                                   |  22%
+label: autodoc (with options) 
+List of 2
+ $ child: chr "subDocs/Scenario.Rmd"
+ $ eval : logi TRUE
+
+
+
+processing file: ./subDocs/Scenario.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+   inline R code fragments
+
+
+Quitting from lines 2-8 (./subDocs/Scenario.Rmd) 
+Quitting from lines NA-8 (./subDocs/Scenario.Rmd) 
+Error in imgURL("PointyHairedBoss.jpg") : 
+  could not find function "imgURL"
+Calls: render ... in_dir -> inline_exec -> withVisible -> eval -> eval
 
 
 Execution halted

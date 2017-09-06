@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Steph Locke (@SteffLocke)">
+  <meta name="dcterms.date" content="2017-09-06">
+  <title>Cut the R Learning Curve</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="RLearningCurve_files/revealjs/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="RLearningCurve_files/revealjs/css/theme/simple.css" id="theme">
+  <link rel="stylesheet" href="lockedata.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'RLearningCurve_files/revealjs/css/print/pdf.css' : 'RLearningCurve_files/revealjs/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="RLearningCurve_files/revealjs/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">Cut the R Learning Curve</h1>
+  <h2 class="author">Steph Locke (<span class="citation" data-cites="SteffLocke">@SteffLocke</span>)</h2>
+  <h3 class="date">2017-09-06</h3>
+</section>
+
+<section><section id="agenda" class="titleslide slide level1"><h1>Agenda</h1></section><section id="agenda-1" class="slide level2">
+<h1>Agenda</h1>
+<ul>
+<li>R</li>
+<li>R + Microsoft</li>
+<li>RefresheR</li>
+<li>Super R</li>
+<li>R for Reporting</li>
+<li>Develop R</li>
+<li>Administer R</li>
+<li>Wrap up</li>
+</ul>
+</section></section>
+<section><section id="r" class="titleslide slide level1"><h1>R</h1></section><section id="r-1" class="slide level2">
+<h1>R</h1>
+<blockquote>
+<p>R is an integrated suite of software facilities for data manipulation, calculation and graphical display</p>
+</blockquote>
+<ul>
+<li>Open source</li>
+<li>In-memory &amp; single-core (by default)</li>
+<li>Multi-platform</li>
+<li>Extensible environment</li>
+<li>Delivered by the <a href="https://www.r-project.org/foundation/">R Foundation</a>, supported by the <a href="https://www.r-consortium.org/">R Consortium</a>, grown by R developers</li>
+<li><a href="http://www.r-project.org/">r-project.org</a></li>
+</ul>
+</section><section id="setup-on-windows" class="slide level2">
+<h1>Setup on Windows</h1>
+<ul>
+<li>Get R</li>
+<li>Get R Tools</li>
+<li>Get RStudio or Visual Studio + VS R Tools</li>
+</ul>
+</section><section id="theres-a-package-for-that" class="slide level2">
+<h1>There’s a package for that</h1>
+<ul>
+<li>R is extended with packages of functionality</li>
+<li>More than 8,000 active packages according to <a href="http://www.r-pkg.org/">MetaCRAN</a></li>
+<li><a href="https://cran.r-project.org/">Comprehensive R Archive Network (CRAN)</a></li>
+<li><a href="https://github.com">Github</a> via <a href="https://cran.r-project.org/package=devtools">devtools</a></li>
+</ul>
+</section><section id="how-it-hangs-together" class="slide level2">
+<h1>How it hangs together</h1>
+<p><img src="https://github.com/stephlocke/lazyCDN/raw/master/RHighlevel.png" alt="" /></p>
+</section><section id="how-it-hangs-together-1" class="slide level2">
+<h1>How it hangs together</h1>
+<p><img src="https://github.com/stephlocke/lazyCDN/raw/master/Rpackages.png" alt="" /></p>
+</section><section id="next-steps" class="slide level2">
+<h1>Next steps</h1>
+<ol type="1">
+<li>Check out the <a href="http://www.r-project.org/">R website</a></li>
+<li>Install <a href="http://www.r-project.org/">R</a> &amp; <a href="http://rstudio.com">RStudio</a> (or <a href="https://www.visualstudio.com/en-us/features/rtvs-vs.aspx">R Tools for Visual Studio</a>)</li>
+</ol>
+</section></section>
+<section><section id="r-microsoft" class="titleslide slide level1"><h1>R + Microsoft</h1></section><section id="microsoft-r-server" class="slide level2">
+<h1>Microsoft R Server</h1>
+<ul>
+<li>Formerly, Revolution R for Enterprise</li>
+<li>Available on Windows and Linux</li>
+<li>Specialised connectors available for SQL Server, Hadoop, Oracle, &amp; Teradata</li>
+</ul>
+</section><section id="azureml" class="slide level2">
+<h1>AzureML</h1>
+<ul>
+<li>Uses R throughout</li>
+</ul>
+</section><section id="powerbi" class="slide level2">
+<h1>PowerBI</h1>
+<ul>
+<li>R as a data source</li>
+<li>Use R for data visualisations</li>
+<li>Any R variant</li>
+</ul>
+</section><section id="sql-server" class="slide level2">
+<h1>SQL Server</h1>
+<ul>
+<li>Call R from inside SQL</li>
+</ul>
+</section></section>
+<section><section id="refresher" class="titleslide slide level1"><h1>RefresheR</h1></section><section id="syntax" class="slide level2">
+<h1>Syntax</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Action</th>
+<th style="text-align: left;">Operator</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Create / update a variable</td>
+<td style="text-align: left;">&lt;-</td>
+<td style="text-align: left;"><code>a &lt;- 10</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Comment</td>
+<td style="text-align: left;">#</td>
+<td style="text-align: left;"><code># This is my comment</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Help</td>
+<td style="text-align: left;">?</td>
+<td style="text-align: left;"><code>?mean</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Identifier</td>
+<td style="text-align: left;">`</td>
+<td style="text-align: left;"><code>`1`&lt;-2</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Get a component e.g a data.frame column</td>
+<td style="text-align: left;">$</td>
+<td style="text-align: left;"><code>iris$Sepal.Length</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Reference positions within an object</td>
+<td style="text-align: left;">[ ]</td>
+<td style="text-align: left;">iris[ 1 , 1]</td>
+</tr>
+</tbody>
+</table>
+</section><section id="objects" class="slide level2">
+<h1>Objects</h1>
+<ul>
+<li>Vector</li>
+<li>Matrix</li>
+<li>Array</li>
+<li>List</li>
+<li>data.frame</li>
+</ul>
+</section><section id="next-steps-1" class="slide level2">
+<h1>Next steps</h1>
+<ul>
+<li>Go through the first sections of the <a href="http://stephlocke.github.io/RMSFTDP">R for Microsoft Data Platform</a> pre-con</li>
+<li>Try the <a href="https://campus.datacamp.com/courses/free-introduction-to-r">datacamp R intro course</a></li>
+</ul>
+</section></section>
+<section><section id="super-r" class="titleslide slide level1"><h1>Super R</h1></section><section id="data.table" class="slide level2">
+<h1>data.table</h1>
+<p><img src="https://github.com/stephlocke/lazyCDN/raw/master/datatable.png" alt="" /></p>
+</section><section id="data.table-1" class="slide level2">
+<h1>data.table</h1>
+<ol type="1">
+<li>Super-fast slicing &amp; dicing</li>
+<li>Low memory footprint vs data.frames</li>
+<li>Fast joins</li>
+<li>Auto-indexing</li>
+<li>Many saved characters!</li>
+<li>Active dev</li>
+</ol>
+</section><section id="data.table-2" class="slide level2">
+<h1>data.table</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Task</th>
+<th style="text-align: left;">How</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Read CSV</td>
+<td style="text-align: left;"><code>irisDT &lt;- fread(“iris.csv”)</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Return everything</td>
+<td style="text-align: left;"><code>irisDT       irisDT[  ]</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Select columns</td>
+<td style="text-align: left;"><code>irisDT[  ,  .(Sepal.Length, Sepal.Width) ]</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Restrict rows</td>
+<td style="text-align: left;"><code>irisDT[ Sepal.Length &gt;=5 , ]</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aggregate</td>
+<td style="text-align: left;"><code>irisDT[ , mean(Sepal.Length)]</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aggregate by group</td>
+<td style="text-align: left;"><code>irisDT[ , mean(Sepal.Length) , Species ]</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Count</td>
+<td style="text-align: left;"><code>irisDT[ , .N ]</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="the-hadleyverse" class="slide level2">
+<h1>The “Hadleyverse”</h1>
+<p><a href="http://had.co.nz/">Hadley Wickham</a>, insanely prolific developer of R packages has produced a great ecosystem:</p>
+<ul>
+<li>httr</li>
+<li>ggplot2</li>
+<li>purrr</li>
+<li>readxl</li>
+<li>haven</li>
+<li>dplyr</li>
+<li>rvest</li>
+<li>…</li>
+</ul>
+</section><section id="dplyr" class="slide level2">
+<h1>dplyr</h1>
+<ul>
+<li>filter() (and slice())</li>
+<li>arrange()</li>
+<li>select() (and rename())</li>
+<li>distinct()</li>
+<li>mutate() (and transmute())</li>
+<li>summarise()</li>
+<li>sample_n() and sample_frac()</li>
+</ul>
+</section><section id="dplyr-1" class="slide level2">
+<h1>dplyr</h1>
+<ol type="1">
+<li>Relatively clear verbs</li>
+<li>Quite easy to get started with</li>
+<li>Verbose</li>
+</ol>
+</section><section id="ggplot2" class="slide level2">
+<h1>ggplot2</h1>
+<p><img src="https://github.com/stephlocke/lazyCDN/raw/master/samplegganimate.gif" alt="" /></p>
+</section><section id="ggplot2-1" class="slide level2">
+<h1>ggplot2</h1>
+<ol type="1">
+<li>Clean conceptual implementation</li>
+<li>Highly customisable</li>
+<li>Simple to start with</li>
+<li>Big ecosystem</li>
+</ol>
+</section><section id="ggplot2-2" class="slide level2">
+<h1>ggplot2</h1>
+<table style="width:58%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Term</th>
+<th style="text-align: left;">Explanation</th>
+<th style="text-align: left;">Example(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>plot</strong></td>
+<td style="text-align: left;">A plot using the grammar of graphics</td>
+<td style="text-align: left;"><code>ggplot()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>aes</strong>thetics</td>
+<td style="text-align: left;">attributes of the chart</td>
+<td style="text-align: left;">colour, x, y</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mapping</td>
+<td style="text-align: left;">relating a column in your data to an aesthetic</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>stat</strong>istical transformation</td>
+<td style="text-align: left;">a translation of the raw data into a refined summary</td>
+<td style="text-align: left;"><code>stat_density()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>geom</strong>etry</td>
+<td style="text-align: left;">the display of aesthetics</td>
+<td style="text-align: left;"><code>geom_line()</code>, <code>geom_bar()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>scale</strong></td>
+<td style="text-align: left;">the range of values</td>
+<td style="text-align: left;">axes, legends</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>coord</strong>inate system</td>
+<td style="text-align: left;">how geometries get laid out</td>
+<td style="text-align: left;"><code>coord_flip()</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>facet</strong></td>
+<td style="text-align: left;">a means of subsetting the chart</td>
+<td style="text-align: left;"><code>facet_grid()</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>theme</strong></td>
+<td style="text-align: left;">display properties</td>
+<td style="text-align: left;"><code>theme_minimal()</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="caret" class="slide level2">
+<h1>caret</h1>
+<blockquote>
+<p>A single point of contact for myriad statistical &amp; machine learning algorithms</p>
+</blockquote>
+<ul>
+<li class="fragment">Plus handy data prep!</li>
+<li class="fragment">Find out more at <a href="http://topepo.github.io/caret/">caret homepage</a></li>
+</ul>
+</section><section id="azureml-1" class="slide level2">
+<h1>AzureML</h1>
+<blockquote>
+<p>Interact with AzureML in R</p>
+</blockquote>
+<ol type="1">
+<li>No GUI</li>
+<li>All the development environments of R</li>
+<li>Consume AzureML webservice</li>
+</ol>
+</section><section id="rmarkdown" class="slide level2">
+<h1>rmarkdown</h1>
+<blockquote>
+<p>Write markdown, interweave code</p>
+</blockquote>
+<ol type="1">
+<li>Data provenance</li>
+<li>Ease of documenting &amp; developing solutions</li>
+<li>Extendible &amp; customisable</li>
+</ol>
+</section><section id="minicran" class="slide level2">
+<h1>miniCRAN</h1>
+<blockquote>
+<p>Make your own CRAN</p>
+</blockquote>
+<ol type="1">
+<li>R interface</li>
+<li>Control over packages</li>
+<li>Internal package deployment</li>
+</ol>
+</section><section id="next-steps-2" class="slide level2">
+<h1>Next steps</h1>
+<ol type="1">
+<li>Play with the popular packages</li>
+<li>Look at <a href="https://cran.r-project.org/web/views/">CRAN task views</a></li>
+<li>Ask for recommendations!</li>
+</ol>
+</section></section>
+<section><section id="r-for-reporting" class="titleslide slide level1"><h1>R for Reporting</h1></section><section id="types-of-reports" class="slide level2">
+<h1>Types of reports</h1>
+<ul>
+<li>Interactive</li>
+<li>Static</li>
+</ul>
+</section><section id="interactive-reports" class="slide level2">
+<h1>Interactive reports</h1>
+<ul>
+<li>shiny</li>
+<li>flexdashboards</li>
+</ul>
+</section><section id="static-reports" class="slide level2">
+<h1>Static reports</h1>
+<ul>
+<li>rmarkdown</li>
+<li>knitr</li>
+</ul>
+</section><section id="im-going-to-show-off" class="slide level2" data-background="http://i.giphy.com/ZQjUvxPYUQ21q.gif">
+<h1>I’m going to show off</h1>
+</section></section>
+<section><section id="develop-r" class="titleslide slide level1"><h1>Develop R</h1></section><section id="utility-packages" class="slide level2">
+<h1>Utility packages</h1>
+<ul>
+<li>testthat</li>
+<li>devtools (useful for other things)</li>
+<li>microbenchmark</li>
+<li>packrat</li>
+</ul>
+</section><section id="package-development" class="slide level2">
+<h1>Package development</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools)
+pkg&lt;-<span class="st">&quot;newPackage&quot;</span>
+<span class="kw">create</span>(pkg)
+
+<span class="kw">library</span>(devtools) <span class="co"># Open the project!</span>
+<span class="kw">add_test_infrastructure</span>() <span class="co"># Add unit test framework</span>
+<span class="kw">add_travis</span>() <span class="co"># Add CI framework</span>
+<span class="kw">use_vignette</span>() <span class="co"># Add folder for macro-level help files</span>
+<span class="kw">use_package_doc</span>() <span class="co"># Add file for providing info about your package</span>
+<span class="kw">use_readme_rmd</span>() <span class="co"># Make a README!</span></code></pre></div>
+</section><section id="what-to-unit-test" class="slide level2">
+<h1>What to unit test</h1>
+<ol type="1">
+<li>A single set of values that represent “normal” and expect this matches a correct answer</li>
+<li>A dataset that represents “normal” and expecting this to match correct answers</li>
+<li>Various permutations of bad input values and expect errors (ideally specific error messages)</li>
+<li>Edge cases that cover extreme values or boundaries for any inequalities or conditions</li>
+<li>Any bugs or compatibility issues</li>
+</ol>
+</section><section id="how-to-test" class="slide level2">
+<h1>How to test</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myfunc&lt;-function(<span class="dt">a=</span><span class="dv">1</span>,<span class="dt">b=</span><span class="dv">2</span>,<span class="dt">c=</span><span class="st">&quot;blah&quot;</span>){
+<span class="kw">stopifnot</span>(<span class="kw">is.numeric</span>(a), <span class="kw">is.numeric</span>(b), <span class="kw">is.character</span>(c))
+d&lt;-<span class="kw">ifelse</span>(a&lt;<span class="dv">0</span>,a*b,a/b)
+e&lt;-<span class="kw">paste0</span>(c,d)
+<span class="kw">return</span>(e)
+}
+<span class="kw">library</span>(testthat)
+<span class="co"># Add a high-level name for group of tests, typically the function name</span>
+<span class="kw">context</span>(<span class="st">&quot;myfunc&quot;</span>)
+
+<span class="co"># Simplest test</span>
+<span class="kw">test_that</span>(<span class="st">&quot;Defaults return expected result&quot;</span>,{
+  result&lt;-<span class="kw">myfunc</span>()
+  check&lt;-<span class="st">&quot;blah0.5&quot;</span>
+  <span class="kw">expect_equal</span>(result,check)
+})</code></pre></div>
+</section><section id="next-steps-3" class="slide level2">
+<h1>Next steps</h1>
+<ol type="1">
+<li>Read Hadley’s <a href="http://r-pkgs.had.co.nz/">Package Development guide</a></li>
+<li>Practice!</li>
+</ol>
+</section></section>
+<section><section id="administer-r" class="titleslide slide level1"><h1>Administer R</h1></section><section id="infrastructure" class="slide level2">
+<h1>Infrastructure</h1>
+<ul>
+<li class="fragment">Windows or Linux?</li>
+<li class="fragment">Linux!</li>
+<li class="fragment">Because …</li>
+<li class="fragment">RStudio Server</li>
+<li class="fragment">System Dependencies</li>
+</ul>
+</section><section id="infrastructure-1" class="slide level2">
+<h1>Infrastructure</h1>
+<ul>
+<li>High RAM</li>
+<li>CPU should be decent</li>
+<li>Physical storage can be low</li>
+<li>Virus scanning not a problem</li>
+<li>AD auth (fairly simple)</li>
+<li>File share availability</li>
+<li>Backups or scripted builds?</li>
+</ul>
+</section><section id="r-2" class="slide level2">
+<h1>R</h1>
+<ul>
+<li class="fragment">Microsoft R or base R?</li>
+<li class="fragment">It depends!</li>
+<li class="fragment">Need cutting edge R &amp; packages?</li>
+<li class="fragment">Need extra computational speed or connectors?</li>
+</ul>
+</section><section id="r-packages" class="slide level2">
+<h1>R &amp; Packages</h1>
+<ul>
+<li>Regular updates required</li>
+<li>Unit tests of key behaviours should be done</li>
+<li>Dev environments always a plus!</li>
+<li>miniCRAN</li>
+</ul>
+</section><section id="deployment" class="slide level2">
+<h1>Deployment</h1>
+<ul>
+<li>Ad-hoc facilities</li>
+<li>Via Continuous Deployment</li>
+</ul>
+</section><section id="next-steps-4" class="slide level2">
+<h1>Next steps</h1>
+<ul>
+<li>Learn some <a href="http://linuxsurvival.com/">Linux fundamentals</a></li>
+<li>Determine what sort of capacity requirements are needed</li>
+</ul>
+</section></section>
+<section><section id="wrap-up" class="titleslide slide level1"><h1>Wrap up</h1></section><section id="covered" class="slide level2">
+<h1>Covered</h1>
+<ul>
+<li>R overview</li>
+<li>R + Microsoft</li>
+<li>RefresheR</li>
+<li>Super R</li>
+<li>R for Reporting</li>
+<li>Develop R</li>
+<li>Administer R</li>
+</ul>
+</section><section id="next-steps-5" class="slide level2">
+<h1>Next steps</h1>
+<ul>
+<li>Get the deck <a href="https://itsalocke.com">itsalocke.com/talks</a></li>
+<li>Follow up the Next Steps sections</li>
+<li>Let me know how you get on: <span class="citation" data-cites="SteffLocke">@SteffLocke</span></li>
+</ul>
+</section><section id="qa" class="slide level2">
+<h1>Q&amp;A</h1>
+</section></section>
+    </div>
+  </div>
+
+  <script src="RLearningCurve_files/revealjs/lib/js/head.min.js"></script>
+  <script src="RLearningCurve_files/revealjs/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: '1920',
+        height: '1080',
+        // Factor of the display size that should remain empty around the content
+        margin: '0.05',
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'RLearningCurve_files/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'RLearningCurve_files/revealjs/plugin/zoom-js/zoom.js', async: true },
+          { src: 'RLearningCurve_files/revealjs/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
