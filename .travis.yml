@@ -4,7 +4,6 @@ latex: false
 warnings_are_errors: false
 install:
   - R -e 'install.packages("devtools")'
-  - R -e 'devtools::install_github("lockedatapublished/revealjs")'
   - R -e 'devtools::install_deps(dep=T)'
   - R CMD build --no-build-vignettes --no-manual .
   - R CMD check --no-build-vignettes --no-manual  *tar.gz
