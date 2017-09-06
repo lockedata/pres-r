@@ -76,8 +76,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1>Steph Locke | Who I am</h1>
 <ul>
 <li>Data specialist</li>
-<li>Principal Consultant @ Mango Solutions</li>
-<li>github: <a href="http://github.com/stephlocke/Rtraining">stephlocke/Rtraining</a></li>
+<li>Locke Data</li>
 <li>blog: <a href="http://itsalocke.com">itsalocke.com</a></li>
 <li>t: <a href="http://twitter.com/stefflocke">@stefflocke</a></li>
 </ul>
@@ -180,11 +179,11 @@ a&lt;-<span class="kw">c</span>(<span class="dv">25</span>, <span class="dv">30<
 <h1>Subsetting | Vectors</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">20</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>) <span class="co"># setup</span>
 a <span class="co"># visual check</span></code></pre></div>
-<pre><code>## [1]  1 13  9  4  4</code></pre>
+<pre><code>## [1]  2  9 20 12 18</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a[<span class="dv">1</span>:<span class="dv">2</span>] <span class="co"># row numbers</span></code></pre></div>
-<pre><code>## [1]  1 13</code></pre>
+<pre><code>## [1] 2 9</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a[a&lt;=<span class="dv">10</span>] <span class="co"># value filters</span></code></pre></div>
-<pre><code>## [1] 1 9 4 4</code></pre>
+<pre><code>## [1] 2 9</code></pre>
 </section><section id="subsetting-data.frames-p1" class="slide level2">
 <h1>Subsetting | Data.frames p1</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">10</span>, <span class="dt">b =</span> LETTERS[<span class="dv">1</span>:<span class="dv">5</span>]) <span class="co"># setup</span>
