@@ -237,14 +237,83 @@ List of 2
 
 processing file: ./subDocs/Scenario.Rmd
   |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
-   inline R code fragments
+  ordinary text without R code
 
 
-Quitting from lines 2-8 (./subDocs/Scenario.Rmd) 
-Quitting from lines NA-8 (./subDocs/Scenario.Rmd) 
-Error in imgURL("PointyHairedBoss.jpg") : 
-  could not find function "imgURL"
-Calls: render ... in_dir -> inline_exec -> withVisible -> eval -> eval
+  |                                                                         |..................                                               |  28%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: autodoc (with options) 
+List of 2
+ $ child: chr "subDocs/Packages.Rmd"
+ $ eval : logi TRUE
+
+
+
+processing file: ./subDocs/Packages.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+label: unnamed-chunk-1 (with options) 
+List of 2
+ $ eval: logi FALSE
+ $ echo: logi TRUE
+
+
+  |                                                                         |.........................                                        |  39%
+  ordinary text without R code
+
+  |                                                                         |.............................                                    |  44%
+label: autodoc (with options) 
+List of 2
+ $ child: chr "subDocs/Database.Rmd"
+ $ eval : logi TRUE
+
+
+
+processing file: ./subDocs/Database.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |...........                                                      |  17%
+  ordinary text without R code
+
+  |                                                                         |......................                                           |  33%
+label: dbconnect (with options) 
+List of 5
+ $ echo   : logi TRUE
+ $ eval   : logi TRUE
+ $ warning: logi FALSE
+ $ message: logi FALSE
+ $ results: chr "hide"
+
+  |                                                                         |................................                                 |  50%
+  ordinary text without R code
+
+  |                                                                         |...........................................                      |  67%
+label: unnamed-chunk-2 (with options) 
+List of 3
+ $ echo   : logi TRUE
+ $ eval   : logi FALSE
+ $ results: chr "hide"
+
+  |                                                                         |......................................................           |  83%
+  ordinary text without R code
+
+  |                                                                         |.................................................................| 100%
+label: datagen (with options) 
+List of 4
+ $ echo   : logi FALSE
+ $ eval   : logi TRUE
+ $ results: chr "hide"
+ $ warning: logi FALSE
+
+Quitting from lines 44-62 (./subDocs/Database.Rmd) 
+Quitting from lines NA-62 (./subDocs/Database.Rmd) 
+Error in fread(system.file("extdata", "Order.csv", package = "Rtraining")) : 
+  Input is either empty or fully whitespace after the skip or autostart. Run again with verbose=TRUE.
+Calls: render ... withCallingHandlers -> withVisible -> eval -> eval -> fread
+In addition: Warning messages:
+1: In odbcDriverConnect("Driver={SQL Server Native Client 11.0};\n          Server=mhknbn2kdz.database.windows.net;\n          Database=AdventureWorks2012;\n          Uid=sqlfamily;\n          Pwd=sqlf@m1ly;") :
+  [RODBC] ERROR: state IM002, code 0, message [unixODBC][Driver Manager]Data source name not found, and no default driver specified
+2: In odbcDriverConnect("Driver={SQL Server Native Client 11.0};\n          Server=mhknbn2kdz.database.windows.net;\n          Database=AdventureWorks2012;\n          Uid=sqlfamily;\n          Pwd=sqlf@m1ly;") :
+  ODBC connection failed
 
 
 Execution halted
