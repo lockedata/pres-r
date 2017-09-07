@@ -12,7 +12,5 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Presentation Stub
-This is the core infrastructure for a repo containing presentations made by Locke Data.
-
-Travis-CI will build the package (mainly for getting dependencies!) then will render each presentation and commit the docs to github.
+# R Presentations
+These are talks about R!
