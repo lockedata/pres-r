@@ -1,5 +1,5 @@
 
-R version 3.4.1 (2017-01-27) -- "Single Candle"
+R version 3.4.2 (2017-01-27) -- "Short Summer"
 Copyright (C) 2017 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -56,6 +56,42 @@ output file: sample.knit.md
 /usr/bin/pandoc +RTS -K512m -RTS sample.utf8.md --to revealjs --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --output /home/travis/build/lockedata/pres-r/docs/sample.html --smart --email-obfuscation none --template /home/travis/R/Library/revealjs/rmarkdown/templates/revealjs_presentation/resources/default.html --variable center=false --slide-level 2 --variable theme=simple --variable transition=default --variable backgroundTransition=default --variable history=true --variable "height='1080'" --variable "width='1920'" --variable "margin='0.05'" --css lockedata.css --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --variable revealjs-url=sample_files/reveal.js-3.3.0.1 --highlight-style pygments 
 
 Output created: docs/sample.html
+
+
+processing file: RReporting.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.............                                                    |  20%
+   inline R code fragments
+
+  |                                                                         |..........................                                       |  40%
+label: setup (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                         |.......................................                          |  60%
+  ordinary text without R code
+
+  |                                                                         |....................................................             |  80%
+label: autodoc (with options) 
+List of 2
+ $ child: chr "AboutMeTech.Rmd"
+ $ eval : logi TRUE
+
+
+
+processing file: ./AboutMeTech.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+output file: RReporting.knit.md
+
+/usr/bin/pandoc +RTS -K512m -RTS RReporting.utf8.md --to revealjs --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --output /home/travis/build/lockedata/pres-r/docs/RReporting.html --smart --email-obfuscation none --template /home/travis/R/Library/revealjs/rmarkdown/templates/revealjs_presentation/resources/default.html --variable center=false --slide-level 2 --variable theme=simple --variable transition=default --variable backgroundTransition=default --variable history=true --variable "height='1080'" --variable "width='1920'" --variable "margin='0.05'" --css lockedata.css --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --variable revealjs-url=RReporting_files/reveal.js-3.3.0.1 --highlight-style pygments 
+
+Output created: docs/RReporting.html
 
 
 processing file: RLearningCurve.Rmd
@@ -802,6 +838,30 @@ output file: KnowingYourRsFromYourElbow.knit.md
 /usr/bin/pandoc +RTS -K512m -RTS KnowingYourRsFromYourElbow.utf8.md --to revealjs --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --output /home/travis/build/lockedata/pres-r/docs/KnowingYourRsFromYourElbow.html --smart --email-obfuscation none --template /home/travis/R/Library/revealjs/rmarkdown/templates/revealjs_presentation/resources/default.html --variable center=false --slide-level 2 --variable theme=simple --variable transition=default --variable backgroundTransition=default --variable history=true --variable "height='1080'" --variable "width='1920'" --variable "margin='0.05'" --css lockedata.css --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --variable revealjs-url=KnowingYourRsFromYourElbow_files/reveal.js-3.3.0.1 --highlight-style pygments 
 
 Output created: docs/KnowingYourRsFromYourElbow.html
+
+
+processing file: AboutMeTech.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+output file: AboutMeTech.knit.md
+
+/usr/bin/pandoc +RTS -K512m -RTS AboutMeTech.utf8.md --to revealjs --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --output /home/travis/build/lockedata/pres-r/docs/AboutMeTech.html --smart --email-obfuscation none --template /home/travis/R/Library/revealjs/rmarkdown/templates/revealjs_presentation/resources/default.html --variable center=false --slide-level 2 --variable theme=simple --variable transition=default --variable backgroundTransition=default --variable history=true --variable "height='1080'" --variable "width='1920'" --variable "margin='0.05'" --css lockedata.css --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --variable revealjs-url=AboutMeTech_files/reveal.js-3.3.0.1 --highlight-style pygments 
+
+Output created: docs/AboutMeTech.html
+
+
+processing file: AboutMeBusiness.Rmd
+  |                                                                         |                                                                 |   0%  |                                                                         |.................................................................| 100%
+  ordinary text without R code
+
+
+output file: AboutMeBusiness.knit.md
+
+/usr/bin/pandoc +RTS -K512m -RTS AboutMeBusiness.utf8.md --to revealjs --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --output /home/travis/build/lockedata/pres-r/docs/AboutMeBusiness.html --smart --email-obfuscation none --template /home/travis/R/Library/revealjs/rmarkdown/templates/revealjs_presentation/resources/default.html --variable center=false --slide-level 2 --variable theme=simple --variable transition=default --variable backgroundTransition=default --variable history=true --variable "height='1080'" --variable "width='1920'" --variable "margin='0.05'" --css lockedata.css --mathjax --variable "mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" --variable revealjs-url=AboutMeBusiness_files/reveal.js-3.3.0.1 --highlight-style pygments 
+
+Output created: docs/AboutMeBusiness.html
 Warning messages:
 1: In odbcDriverConnect("Driver={SQL Server Native Client 11.0};\n          Server=mhknbn2kdz.database.windows.net;\n          Database=AdventureWorks2012;\n          Uid=sqlfamily;\n          Pwd=sqlf@m1ly;") :
   [RODBC] ERROR: state IM002, code 0, message [unixODBC][Driver Manager]Data source name not found, and no default driver specified
@@ -810,4 +870,4 @@ Warning messages:
 > 
 > proc.time()
    user  system elapsed 
- 14.523   0.474  14.932 
+ 11.716   0.484  12.818 
