@@ -1,0 +1,97 @@
+---
+title: 'R for reporting'
+author: "Steph Locke\n@SteffLocke\nLocke Data"
+date: '`r Sys.Date()`'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, tidy=TRUE, size="large", tidy.opts=list( width.cutoff=60))
+```
+
+```{r autodoc, child='AboutMeTech.Rmd', eval=TRUE}
+```
+
+## Agenda
+- R for interactive reports
+- R for static reports
+- Architectures
+- Skills
+- Other considerations
+
+# R for interactive reports
+
+## shiny
+- inputs
+- reactive intermediates
+- outputs
+
+## shiny++
+- shinydashboard
+- flexdashboard
+
+# R for static reports
+
+## rmarkdown
+- PDF
+- Word
+- HTML
+
+## Excel
+- writexl
+- openxlsx
+
+## Scheduling & email
+- [taskscheduleR](https://CRAN.R-project.org/package=taskscheduleR)
+- [cronR](https://cran.r-project.org/package=cronR)
+- [mailR](https://cran.r-project.org/package=mailR)
+- [ponyexpress](https://github.com/ropenscilabs/ponyexpress)
+
+
+# Architectures
+
+## shiny
+- shinyserver
+- shinyapps.io
+
+## general
+- rstudio connect
+- AN Other hosting
+- docker
+
+# Skills
+
+## R
+- Basic R
+- Data manipulation
+- Data visualisation
+- Writing your own functions and packages
+- Shiny
+
+## Others
+- Web (HTML / CSS / JS)
+- typesetting (LaTeX)
+- infrastructure
+- dev best practices
+
+# Other considerations
+
+## Other considerations
+- Team practices
+- Deployments
+- Migration
+- Dependency management
+
+# Conclusion
+
+## Agenda
+- R for interactive reports
+- R for static reports
+- Architectures
+- Skills
+- Other considerations
+
+## Wrapup
+- Thank you
+- Get the slides via [itsalocke.com](https://itsalocke.com/talks)
+- Start learning R with [Working with R](http://geni.us/workingwithr)
+- Get in touch! [\@SteffLocke](https://twitter.com/stefflocke)
