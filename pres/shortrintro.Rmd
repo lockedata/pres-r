@@ -1,0 +1,219 @@
+---
+title: 'Intro to R'
+author: "Steph Locke\n@SteffLocke\nLocke Data"
+date: '`r Sys.Date()`'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, tidy=TRUE, size="large", tidy.opts=list( width.cutoff=60))
+```
+
+# Setup
+
+## Steph Locke {data-background="https://itsalocke.com/img/ChibiStephBusiness.svg"}
+- Locke Data
+- Presenter on Data Science, BI, and DataOps
+- Microsoft Data Platform MVP
+- User group leader: [MSFT Stack](http://www.meetup.com/MSFT Stack) & [CaRdiff](http://www.meetup.com/Cardiff-R-User-Group/)
+- Conference organiser: [satRdays](http://planning.satrdays.org)
+- Author: [R Fundamentals](//geni.us/rfundamentals)
+
+[github.com/StephLocke](https://github.com/StephLocke) | [itsalocke.com](http://itsalocke.com) | [\@SteffLocke](https://twitter.com/stefflocke)
+
+
+## Agenda
+- What is R?
+- R for data manipulation
+- R for data visualisation
+- R for reporting
+- ~R for data science~
+- Nifty stuff
+- Next steps
+
+# R
+
+## R 
+- What is it?
+- Origins
+- Quirks
+- Value
+
+## Use case - wrangling data
+```{r}
+library(tidyverse,quietly = TRUE)
+head(population, 2)
+head(spread(population, year, population), 2)
+```
+
+## Use case - visualisation
+```{r}
+library(datasauRus)
+ggplot(datasaurus_dozen, aes(x,y)) +
+  geom_point() +
+  facet_wrap(~dataset, ncol=5)
+```
+
+## Use case - integration
+```{r}
+library(reticulate)
+os <- import("os")
+os$getcwd()
+```
+
+# R for data manipulation
+
+## Tidyverse
+- Lots of data sources and destinations
+- SQL-ish functions
+- Kicks SQLs butt 
+- "Piping" for easy to read code
+
+## I/O packages
+- readr for flat files
+- readxl for Excel
+- haven for SAS, Stata, etc
+- odbc for databases
+- jsonlite for JSON
+- xml2 for XML
+- httr for APIs
+- rvest for web scraping
+- sparklyr for Spark
+
+## Data manipulation packages
+- dplyr for "SQL"
+- dbplyr for "SQL" against DBs
+- tidyr for pivoting and unpivoting data
+- purrr for loop(ish) stuff without the loops
+- magrittr for pipelines
+
+## Bulk read example
+```{r}
+list.files("../demo/multiread", full.names = TRUE) %>% 
+  map_df(read_csv, 
+         col_types=cols(.default = col_character()))
+```
+
+## Data pipelines
+```{r}
+starwars %>% 
+  unite(homeworld_species, homeworld, species) %>% 
+  count(homeworld_species)
+```
+
+## Databases
+```{r echo=TRUE}
+library(DBI)
+library(odbc)
+
+driver   = "ODBC Driver 13 for SQL Server"
+server = "mhknbn2kdz.database.windows.net"
+database = "AdventureWorks2012"
+uid = "sqlfamily"
+pwd = "sqlf@m1ly"
+
+dbConn<-dbConnect(odbc(),
+          driver=driver, server=server,
+          database=database, uid=uid,
+          pwd=pwd)
+```
+
+## Querying databases
+```{r echo=TRUE}
+library(dbplyr)
+ 
+medalist<-tbl(dbConn, in_schema("olympics","medalist"))
+sport<-tbl(dbConn, in_schema("olympics","sport"))
+
+medalist %>% 
+  left_join(sport)
+```
+
+# R for data visualisation
+
+## Key packages
+- ggplot2 for static viz
+    + ggthemes for extra themes
+    + ggraph for graph viz in ggplot
+    + ggmap for geospatial in ggplot
+- plotly for interactive viz
+- htmlwidgets for generating anything html / javascript
+- DiagrammeR for flowcharts and things
+
+## ggplot2 basics
+```{r}
+ggplot(datasaurus_dozen, aes(x,y)) +
+  geom_point() +
+  facet_wrap(~dataset, ncol=5)
+```
+
+## Turning a ggplot interactive
+```{r}
+library(plotly, quietly = TRUE)
+p<- ggplot(datasaurus_dozen, aes(x,y)) +
+  geom_point() +
+  facet_wrap(~dataset, ncol=5)
+ggplotly(p)
+```
+
+## Building interactive plots
+```{r}
+map_data("world", "UK") %>%
+  group_by(group) %>%
+  plot_geo(x = ~long, y = ~lat) %>%
+  add_markers(size = I(1))
+```
+
+# R for reporting
+## Key packages
+- rmarkdown for using markdown
+- knitr for converting R markdown files to other formats
+- revealjs for whizzy presentations
+- bookdown for making books
+- blogdown for sites
+- officer for complex(ish) Word and PowerPoint
+- shiny for interactive reports
+- flexdashboard for dashboards
+- DataExplorer for quick reports on data
+
+## rmarkdown & revealjs
+See slide source code!
+
+## bookdown
+See Data Manipulation in R source code
+
+## shiny & flexdashboard
+See Cost of Coffee app & source code
+
+## DataExplorer
+```{r eval=FALSE}
+DataExplorer::create_report(who)
+```
+
+
+# Nifty stuff
+## Plays well with others
+- Consume Python & JS
+- Consume from Python & JS
+- Incoporated into many BI platforms
+- Run in-database
+- Run in Spark
+
+## Community
+- R UGs
+- R Ladies
+- Conferences e.g. SatRday Cardiff June 23rd
+- Twitter (#rstats)
+- r-bloggers.com
+- r-weekly.com
+
+# Next steps
+## Q&A
+## Learn
+- Community
+- datacamp.com
+- <shameless plug>My books</shameless plug>
+
+## Follow up with me
+- @stefflocke
+- Join my #learnr slack! bit.ly/ldlearnrslack
+- Get slides and blog posts itsalocke.com

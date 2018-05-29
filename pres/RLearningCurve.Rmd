@@ -49,7 +49,7 @@ output:
 - Administer R
 
 ## Next steps
-- Get the deck [itsalocke.com/talks](https://itsalocke.com)
+- Get the deck [itsalocke.com/talks](https://itsalocke.com/talks)
 - Follow up the Next Steps sections
 - Let me know how you get on: @SteffLocke
 
