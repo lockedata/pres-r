@@ -2,8 +2,6 @@
 title: 'Shiny: dashboards in R'
 author: "Steph Locke (@SteffLocke)"
 date: '`r Sys.Date()`'
-output:
-  Rtraining::stephSlideStyle
 runtime: shiny
 ---
 

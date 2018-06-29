@@ -1,4 +1,4 @@
-## Steph Locke {data-background="https://itsalocke.com/img/ChibiStephBusiness.svg"}
+## Steph Locke 
 - Locke Data
 - Presenter on Data Science, BI, and DataOps
 - Microsoft Data Platform MVP

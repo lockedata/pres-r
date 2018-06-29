@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Steph Locke @SteffLocke Locke Data" />
-  <meta name="dcterms.date" content="2017-11-09" />
+  <meta name="author" content="Steph Locke @SteffLocke @LockeData" />
+  <meta name="dcterms.date" content="2018-06-29" />
   <title>R for reporting</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="RReporting_files/reveal.js-3.3.0.1/css/reveal.css"/>
+  <link rel="stylesheet" href="T:\sites\superbuild\pres-r\docs\RReporting_files/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
 
-<link rel="stylesheet" href="RReporting_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="T:\sites\superbuild\pres-r\docs\RReporting_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
 
 
   <!-- some tweaks to reveal css -->
@@ -452,24 +452,24 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <section>
     <h1 class="title">R for reporting</h1>
-    <h2 class="author">Steph Locke <span class="citation" data-cites="SteffLocke">@SteffLocke</span> Locke Data</h2>
-    <h3 class="date">2017-11-09</h3>
+    <h2 class="author">Steph Locke <span class="citation" data-cites="SteffLocke">@SteffLocke</span> <span class="citation" data-cites="LockeData">@LockeData</span></h2>
+    <h3 class="date">2018-06-29</h3>
 </section>
 
-<section id="steph-locke" class="slide level2" data-background="https://itsalocke.com/img/ChibiStephBusiness.svg">
-<h1>Steph Locke</h1>
+<section id="steph-locke" class="slide level2">
+<h2>Steph Locke</h2>
 <ul>
 <li>Locke Data</li>
 <li>Presenter on Data Science, BI, and DataOps</li>
 <li>Microsoft Data Platform MVP</li>
 <li>User group leader: <a href="http://www.meetup.com/MSFT%20Stack">MSFT Stack</a> &amp; <a href="http://www.meetup.com/Cardiff-R-User-Group/">CaRdiff</a></li>
-<li>Conference organiser: <a href="http://planning.satrdays.org">satRdays</a> &amp; <a href="http://battleofthebeards.info">Battle of the Beards</a></li>
-<li>Author: <a href="//geni.us/workingwithr">Working with R</a></li>
+<li>Conference organiser: <a href="http://planning.satrdays.org">satRdays</a></li>
+<li>Author: <a href="//geni.us/rfundamentals">R Fundamentals</a></li>
 </ul>
 <p><a href="https://github.com/StephLocke">github.com/StephLocke</a> | <a href="http://itsalocke.com">itsalocke.com</a> | <a href="https://twitter.com/stefflocke">@SteffLocke</a></p>
 </section>
 <section id="agenda" class="slide level2">
-<h1>Agenda</h1>
+<h2>Agenda</h2>
 <ul>
 <li>R for interactive reports</li>
 <li>R for static reports</li>
@@ -479,34 +479,36 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ul>
 </section>
 <section><section id="r-for-interactive-reports" class="titleslide slide level1"><h1>R for interactive reports</h1></section><section id="shiny" class="slide level2">
-<h1>shiny</h1>
+<h2>shiny</h2>
 <ul>
 <li>inputs</li>
 <li>reactive intermediates</li>
 <li>outputs</li>
 </ul>
 </section><section id="shiny-1" class="slide level2">
-<h1>shiny++</h1>
+<h2>shiny++</h2>
 <ul>
 <li>shinydashboard</li>
 <li>flexdashboard</li>
+<li>plotly</li>
+<li>rpivotTable</li>
 </ul>
 </section></section>
 <section><section id="r-for-static-reports" class="titleslide slide level1"><h1>R for static reports</h1></section><section id="rmarkdown" class="slide level2">
-<h1>rmarkdown</h1>
+<h2>rmarkdown</h2>
 <ul>
 <li>PDF</li>
 <li>Word</li>
 <li>HTML</li>
 </ul>
 </section><section id="excel" class="slide level2">
-<h1>Excel</h1>
+<h2>Excel</h2>
 <ul>
 <li>writexl</li>
 <li>openxlsx</li>
 </ul>
 </section><section id="scheduling-email" class="slide level2">
-<h1>Scheduling &amp; email</h1>
+<h2>Scheduling &amp; email</h2>
 <ul>
 <li><a href="https://CRAN.R-project.org/package=taskscheduleR">taskscheduleR</a></li>
 <li><a href="https://cran.r-project.org/package=cronR">cronR</a></li>
@@ -515,21 +517,28 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ul>
 </section></section>
 <section><section id="architectures" class="titleslide slide level1"><h1>Architectures</h1></section><section id="shiny-2" class="slide level2">
-<h1>shiny</h1>
+<h2>shiny</h2>
 <ul>
 <li>shinyserver</li>
 <li>shinyapps.io</li>
 </ul>
 </section><section id="general" class="slide level2">
-<h1>general</h1>
+<h2>general</h2>
 <ul>
 <li>rstudio connect</li>
 <li>AN Other hosting</li>
 <li>docker</li>
 </ul>
+</section><section id="r-integrated" class="slide level2">
+<h2>R integrated</h2>
+<ul>
+<li>Power BI</li>
+<li>Tableau</li>
+<li>Jupyter</li>
+</ul>
 </section></section>
 <section><section id="skills" class="titleslide slide level1"><h1>Skills</h1></section><section id="r" class="slide level2">
-<h1>R</h1>
+<h2>R</h2>
 <ul>
 <li>Basic R</li>
 <li>Data manipulation</li>
@@ -538,7 +547,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>Shiny</li>
 </ul>
 </section><section id="others" class="slide level2">
-<h1>Others</h1>
+<h2>Others</h2>
 <ul>
 <li>Web (HTML / CSS / JS)</li>
 <li>typesetting (LaTeX)</li>
@@ -547,7 +556,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ul>
 </section></section>
 <section><section id="other-considerations" class="titleslide slide level1"><h1>Other considerations</h1></section><section id="other-considerations-1" class="slide level2">
-<h1>Other considerations</h1>
+<h2>Other considerations</h2>
 <ul>
 <li>Team practices</li>
 <li>Deployments</li>
@@ -555,8 +564,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>Dependency management</li>
 </ul>
 </section></section>
-<section><section id="conclusion" class="titleslide slide level1"><h1>Conclusion</h1></section><section id="agenda-1" class="slide level2">
-<h1>Agenda</h1>
+<section><section id="conclusion" class="titleslide slide level1"><h1>Conclusion</h1></section><section id="covered" class="slide level2">
+<h2>Covered</h2>
 <ul>
 <li>R for interactive reports</li>
 <li>R for static reports</li>
@@ -565,7 +574,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>Other considerations</li>
 </ul>
 </section><section id="wrapup" class="slide level2">
-<h1>Wrapup</h1>
+<h2>Wrapup</h2>
 <ul>
 <li>Thank you</li>
 <li>Get the slides via <a href="https://itsalocke.com/talks">itsalocke.com</a></li>
@@ -576,8 +585,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
     </div>
   </div>
 
-  <script src="RReporting_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
-  <script src="RReporting_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+  <script src="T:\sites\superbuild\pres-r\docs\RReporting_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="T:\sites\superbuild\pres-r\docs\RReporting_files/reveal.js-3.3.0.1/js/reveal.js"></script>
 
   <script>
 

@@ -1,10 +1,7 @@
 ---
 title: 'Shiny: dashboards in R'
 author: "Steph Locke (@SteffLocke)"
-date: "at SQLBits"
 runtime: shiny
-output:
-  Rtraining::stephSlideStyle
 ---
 
 ## Objective

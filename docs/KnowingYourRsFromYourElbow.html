@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Steph Locke" />
-  <meta name="dcterms.date" content="2017-11-09" />
+  <meta name="dcterms.date" content="2018-06-29" />
   <title>Knowing your Rs from your elbow</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="KnowingYourRsFromYourElbow_files/reveal.js-3.3.0.1/css/reveal.css"/>
+  <link rel="stylesheet" href="T:\sites\superbuild\pres-r\docs\KnowingYourRsFromYourElbow_files/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
 <style type="text/css">
@@ -50,7 +50,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="KnowingYourRsFromYourElbow_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="T:\sites\superbuild\pres-r\docs\KnowingYourRsFromYourElbow_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
 
 
   <!-- some tweaks to reveal css -->
@@ -490,11 +490,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section>
     <h1 class="title">Knowing your Rs from your elbow</h1>
     <h2 class="author">Steph Locke</h2>
-    <h3 class="date">2017-11-09</h3>
+    <h3 class="date">2018-06-29</h3>
 </section>
 
 <section id="steph-locke-not-my-rs" class="slide level2">
-<h1>Steph Locke | Not my Rs</h1>
+<h2>Steph Locke | Not my Rs</h2>
 <ul>
 <li>Star of presentations such as “the LaTeX show”!</li>
 <li>Locke Data</li>
@@ -504,7 +504,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ul>
 </section>
 <section id="whats-this-about-rs" class="slide level2">
-<h1>What’s this about Rs?</h1>
+<h2>What’s this about Rs?</h2>
 <ul>
 <li>R is an open source language, made out of the ashes of S</li>
 <li>It started off stats</li>
@@ -512,7 +512,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ul>
 </section>
 <section id="why-should-you-know-your-rs-from-your-elbow" class="slide level2">
-<h1>Why should you know your Rs from your elbow?</h1>
+<h2>Why should you know your Rs from your elbow?</h2>
 <ul>
 <li>Great analysis</li>
 <li>Reclaim your time from Excel</li>
@@ -522,7 +522,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ul>
 </section>
 <section id="what-does-r-look-like-basics" class="slide level2">
-<h1>What does R look like? | Basics</h1>
+<h2>What does R look like? | Basics</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Define a variable</span>
 a&lt;-<span class="dv">25</span>
 
@@ -530,20 +530,20 @@ a&lt;-<span class="dv">25</span>
 a</code></pre></div>
 <pre><code>## [1] 25</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Do something to it</span>
-a<span class="dv">+1</span></code></pre></div>
+a<span class="op">+</span><span class="dv">1</span></code></pre></div>
 <pre><code>## [1] 26</code></pre>
 </section>
 <section id="what-does-r-look-like-functions" class="slide level2">
-<h1>What does R look like? | Functions</h1>
+<h2>What does R look like? | Functions</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Define a function</span>
-inflateAudienceFigs&lt;-function(x) x*<span class="dv">100</span>
+inflateAudienceFigs&lt;-<span class="cf">function</span>(x) x<span class="op">*</span><span class="dv">100</span>
 
 <span class="co">#Call a function</span>
 <span class="kw">inflateAudienceFigs</span>(a)</code></pre></div>
 <pre><code>## [1] 2500</code></pre>
 </section>
 <section id="what-does-r-look-like-extensions" class="slide level2">
-<h1>What does R look like? | Extensions</h1>
+<h2>What does R look like? | Extensions</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Get a package</span>
 <span class="kw">install.packages</span>(<span class="st">&quot;data.table&quot;</span>)
 
@@ -582,19 +582,19 @@ acc$term
 -->
 </section>
 <section id="what-does-r-look-like-piping" class="slide level2">
-<h1>What does R look like? | Piping</h1>
+<h2>What does R look like? | Piping</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(magrittr)
 
 <span class="co">#Typical</span>
 <span class="kw">pairs</span>(iris)
 
 <span class="co">#Pipe</span>
-iris %&gt;%<span class="st"> </span>pairs
-iris %&gt;%<span class="st"> </span><span class="kw">tail</span>(.) %&gt;%<span class="st"> </span>pairs
-iris %&gt;%<span class="st"> </span>{<span class="kw">tail</span>(.,<span class="kw">nrow</span>(.)/<span class="dv">5</span>)} %&gt;%<span class="st"> </span>pairs</code></pre></div>
+iris <span class="op">%&gt;%</span><span class="st"> </span>pairs
+iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tail</span>(.) <span class="op">%&gt;%</span><span class="st"> </span>pairs
+iris <span class="op">%&gt;%</span><span class="st"> </span>{<span class="kw">tail</span>(.,<span class="kw">nrow</span>(.)<span class="op">/</span><span class="dv">5</span>)} <span class="op">%&gt;%</span><span class="st"> </span>pairs</code></pre></div>
 </section>
 <section id="find-out-more" class="slide level2">
-<h1>Find out more</h1>
+<h2>Find out more</h2>
 <h3 id="online">Online</h3>
 <ul>
 <li>Modern R <a href="http://datacamp.com">DataCamp</a></li>
@@ -611,7 +611,7 @@ iris %&gt;%<span class="st"> </span>{<span class="kw">tail</span>(.,<span class=
 </ul>
 </section>
 <section id="get-this-presentation" class="slide level2">
-<h1>Get this presentation</h1>
+<h2>Get this presentation</h2>
 <p>This presentation is available on <a href="https://github.com/stephlocke/Rtraining">github.com/stephlocke/Rtraining</a>. All the code is available for you to take a copy and play with to help you learn on the go.</p>
 <p>If you have any questions, contact me!</p>
 <p><a href="http://itsalocke.com">itsalocke.com</a> | <a href="https://github.com/StephLocke">github.com/StephLocke</a> | <a href="https://twitter.com/stefflocke">@SteffLocke</a></p>
@@ -619,8 +619,8 @@ iris %&gt;%<span class="st"> </span>{<span class="kw">tail</span>(.,<span class=
     </div>
   </div>
 
-  <script src="KnowingYourRsFromYourElbow_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
-  <script src="KnowingYourRsFromYourElbow_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+  <script src="T:\sites\superbuild\pres-r\docs\KnowingYourRsFromYourElbow_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="T:\sites\superbuild\pres-r\docs\KnowingYourRsFromYourElbow_files/reveal.js-3.3.0.1/js/reveal.js"></script>
 
   <script>
 

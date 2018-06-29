@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Steph Locke" />
-  <meta name="dcterms.date" content="2017-11-09" />
+  <meta name="dcterms.date" content="2018-06-29" />
   <title>Intro to R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="Rintro_files/reveal.js-3.3.0.1/css/reveal.css"/>
+  <link rel="stylesheet" href="T:\sites\superbuild\pres-r\docs\Rintro_files/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
 <style type="text/css">
@@ -50,7 +50,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="Rintro_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="T:\sites\superbuild\pres-r\docs\Rintro_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
 
 
   <!-- some tweaks to reveal css -->
@@ -490,11 +490,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section>
     <h1 class="title">Intro to R</h1>
     <h2 class="author">Steph Locke</h2>
-    <h3 class="date">2017-11-09</h3>
+    <h3 class="date">2018-06-29</h3>
 </section>
 
 <section id="objective" class="slide level2">
-<h1>Objective</h1>
+<h2>Objective</h2>
 <p>Learn about R and do useful day-job stuff with it</p>
 <h3 id="sub-objectives">Sub-objectives</h3>
 <ul>
@@ -507,12 +507,12 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ul>
 </section>
 <section id="scenario" class="slide level2 columns-2">
-<h1>Scenario</h1>
+<h2>Scenario</h2>
 <p><img src="https://github.com/stephlocke/lazyCDN/blob/master/PointyHairedBoss.jpg?raw=true" alt="Pointy Haired Boss" /></p>
 <p>I’ve heard about this new thing called R. Apparently everyone’s using it so we need to. Make me something using it, by tomorrow!</p>
 </section>
 <section id="step-1-google-what-is-r" class="slide level2">
-<h1>Step 1: Google “What is R?”</h1>
+<h2>Step 1: Google “What is R?”</h2>
 <p>I <a href="http://lmgtfy.com/?q=what+is+r">Google</a> frantically and find out…</p>
 <ul>
 <li>R (birthed out of S) has been around for ages</li>
@@ -526,7 +526,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <p>Eep, but I’m not a stats bod or a programmer, what will I do? Do my usual stuff, but swisher!</p>
 </section>
 <section id="step-2-get-r-installed" class="slide level2">
-<h1>Step 2: Get R installed</h1>
+<h2>Step 2: Get R installed</h2>
 <p>OK, I need to get this thing called R installed on my laptop!</p>
 <ul>
 <li>Install R from <a href="http://www.r-project.org/">r-project.org</a> myself</li>
@@ -547,7 +547,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
   ))</code></pre></div>
 </section>
 <section id="step-3-connect-to-the-database" class="slide level2">
-<h1>Step 3: Connect to the database</h1>
+<h2>Step 3: Connect to the database</h2>
 <p>I’ll report on global bike sales from our company’s database</p>
 <ul>
 <li><a href="http://bit.ly/1jrl7V6">Database provided by Redgate, hosted on Azure</a></li>
@@ -587,7 +587,7 @@ Region   &lt;-<span class="st"> </span><span class="kw">data.table</span>( <span
          <span class="st">&quot;SELECT * FROM [Person].[CountryRegion]&quot;</span>))</code></pre></div>
 </section>
 <section id="step-4-create-big-dataset" class="slide level2">
-<h1>Step 4: Create big dataset</h1>
+<h2>Step 4: Create big dataset</h2>
 <p>Hmm, I need to put all the data into a “flat-file” view</p>
 <pre><code>DT[i, j, by]
 DT[WHERE | JOIN | ORDER , 
@@ -621,7 +621,7 @@ OrderTerritory &lt;-<span class="st"> </span>Territory[Order]</code></pre></div>
 OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre></div>
 </section>
 <section id="step-5-summarise-data" class="slide level2">
-<h1>Step 5: Summarise data</h1>
+<h2>Step 5: Summarise data</h2>
 <p>OK, let’s produce some tables!</p>
 <ul>
 <li>Lots of functionality, but kept quite simple here</li>
@@ -651,33 +651,33 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Australia</td>
-<td style="text-align: right;">5985718</td>
-<td style="text-align: right;">3419</td>
+<td style="text-align: right;">11814376</td>
+<td style="text-align: right;">6843</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Canada</td>
-<td style="text-align: right;">8465891</td>
-<td style="text-align: right;">2049</td>
+<td style="text-align: right;">18398929</td>
+<td style="text-align: right;">4067</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Germany</td>
-<td style="text-align: right;">2660008</td>
-<td style="text-align: right;">1296</td>
+<td style="text-align: right;">5479820</td>
+<td style="text-align: right;">2623</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">France</td>
-<td style="text-align: right;">4042225</td>
-<td style="text-align: right;">1362</td>
+<td style="text-align: right;">8119749</td>
+<td style="text-align: right;">2672</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">United Kingdom</td>
-<td style="text-align: right;">4119535</td>
-<td style="text-align: right;">1610</td>
+<td style="text-align: right;">8574049</td>
+<td style="text-align: right;">3219</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">United States</td>
-<td style="text-align: right;">35057232</td>
-<td style="text-align: right;">5996</td>
+<td style="text-align: right;">70829863</td>
+<td style="text-align: right;">12041</td>
 </tr>
 </tbody>
 </table>
@@ -685,7 +685,7 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 <section class="slide level2">
 
 <h3 id="top-5-sales-ever">Top 5 sales ever</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">OrderTerritory[<span class="kw">order</span>(-TotalDue)[<span class="dv">1</span>:<span class="dv">5</span>],
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">OrderTerritory[<span class="kw">order</span>(<span class="op">-</span>TotalDue)[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>],
                <span class="co"># Picks first 5 rows of TotalDue desc</span>
                .( SalesOrderNumber, <span class="co"># multi-select</span>
                   AccountNumber,
@@ -710,39 +710,39 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;">SO7473</td>
+<td style="text-align: left;">10-4020-000599</td>
+<td style="text-align: left;">United States</td>
+<td style="text-align: right;">187487.8</td>
+<td style="text-align: left;">2007-07-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SO11624</td>
+<td style="text-align: left;">10-4020-000599</td>
+<td style="text-align: left;">United States</td>
+<td style="text-align: right;">182018.6</td>
+<td style="text-align: left;">2007-10-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SO2958</td>
+<td style="text-align: left;">10-4020-000514</td>
+<td style="text-align: left;">Canada</td>
+<td style="text-align: right;">170512.7</td>
+<td style="text-align: left;">2006-07-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SO3323</td>
+<td style="text-align: left;">10-4020-000638</td>
+<td style="text-align: left;">France</td>
+<td style="text-align: right;">166537.1</td>
+<td style="text-align: left;">2006-08-01</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">SO3737</td>
 <td style="text-align: left;">10-4020-000072</td>
 <td style="text-align: left;">United States</td>
 <td style="text-align: right;">165028.7</td>
 <td style="text-align: left;">2006-09-01</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SO3711</td>
-<td style="text-align: left;">10-4020-000239</td>
-<td style="text-align: left;">United States</td>
-<td style="text-align: right;">158056.5</td>
-<td style="text-align: left;">2006-09-01</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SO3697</td>
-<td style="text-align: left;">10-4020-000024</td>
-<td style="text-align: left;">United States</td>
-<td style="text-align: right;">145741.9</td>
-<td style="text-align: left;">2006-09-01</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SO8164</td>
-<td style="text-align: left;">10-4020-000546</td>
-<td style="text-align: left;">United States</td>
-<td style="text-align: right;">145454.4</td>
-<td style="text-align: left;">2007-08-01</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">SO13492</td>
-<td style="text-align: left;">10-4020-000085</td>
-<td style="text-align: left;">France</td>
-<td style="text-align: right;">137721.3</td>
-<td style="text-align: left;">2007-11-01</td>
 </tr>
 </tbody>
 </table>
@@ -789,9 +789,9 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Canada</td>
-<td style="text-align: left;">SO2949</td>
-<td style="text-align: left;">10-4020-000227</td>
-<td style="text-align: right;">135606.68</td>
+<td style="text-align: left;">SO2958</td>
+<td style="text-align: left;">10-4020-000514</td>
+<td style="text-align: right;">170512.67</td>
 <td style="text-align: left;">2006-07-01</td>
 </tr>
 <tr class="odd">
@@ -803,10 +803,10 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: left;">France</td>
-<td style="text-align: left;">SO13492</td>
-<td style="text-align: left;">10-4020-000085</td>
-<td style="text-align: right;">137721.31</td>
-<td style="text-align: left;">2007-11-01</td>
+<td style="text-align: left;">SO3323</td>
+<td style="text-align: left;">10-4020-000638</td>
+<td style="text-align: right;">166537.08</td>
+<td style="text-align: left;">2006-08-01</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">United Kingdom</td>
@@ -817,16 +817,16 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: left;">United States</td>
-<td style="text-align: left;">SO3737</td>
-<td style="text-align: left;">10-4020-000072</td>
-<td style="text-align: right;">165028.75</td>
-<td style="text-align: left;">2006-09-01</td>
+<td style="text-align: left;">SO7473</td>
+<td style="text-align: left;">10-4020-000599</td>
+<td style="text-align: right;">187487.83</td>
+<td style="text-align: left;">2007-07-01</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="step-6-make-some-charts" class="slide level2">
-<h1>Step 6: Make some charts</h1>
+<h2>Step 6: Make some charts</h2>
 <p>I need to make some pretties!</p>
 <ul>
 <li>Using <code>ggplot2</code> as much easier than base graphics</li>
@@ -841,9 +841,9 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 
 <span class="kw">ggplot</span>(OrderTerritory                 <span class="co"># dataset</span>
-       ,<span class="kw">aes</span>(<span class="dt">x=</span>Name, <span class="dt">y=</span>..count..))+<span class="st">    </span><span class="co"># values</span>
-<span class="st">  </span><span class="kw">geom_bar</span>()+<span class="st">                         </span><span class="co"># chart type</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>()+<span class="st">                    </span><span class="co"># themeing</span>
+       ,<span class="kw">aes</span>(<span class="dt">x=</span>Name, <span class="dt">y=</span>..count..))<span class="op">+</span><span class="st">    </span><span class="co"># values</span>
+<span class="st">  </span><span class="kw">geom_bar</span>()<span class="op">+</span><span class="st">                         </span><span class="co"># chart type</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span><span class="st">                    </span><span class="co"># themeing</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Region&quot;</span>,<span class="dt">title=</span><span class="st">&quot;All time sales volumes&quot;</span>)</code></pre></div>
 </section>
 <section class="slide level2">
@@ -857,15 +857,23 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(scales)
 
 <span class="kw">ggplot</span>(OrderTerritory               
-       ,<span class="kw">aes</span>(<span class="dt">x=</span>Name, <span class="dt">y=</span>TotalDue))+<span class="st">    </span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)+<span class="st">         </span><span class="co"># use value</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>()+<span class="st">                   </span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">label=</span>dollar)+<span class="st">  </span><span class="co"># customisation</span>
+       ,<span class="kw">aes</span>(<span class="dt">x=</span>Name, <span class="dt">y=</span>TotalDue))<span class="op">+</span><span class="st">    </span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="op">+</span><span class="st">         </span><span class="co"># use value</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span><span class="st">                   </span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">label=</span>dollar)<span class="op">+</span><span class="st">  </span><span class="co"># customisation</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;Region&quot;</span>,<span class="dt">title=</span><span class="st">&quot;All time sales value&quot;</span>)</code></pre></div>
 </section>
 <section class="slide level2">
 
 <h3 id="basic-chart-value-1">Basic chart – value</h3>
+<pre><code>## 
+## Attaching package: &#39;scales&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     discard</code></pre>
+<pre><code>## The following object is masked from &#39;package:readr&#39;:
+## 
+##     col_factor</code></pre>
 <p><img src="Rintro_files/figure-revealjs/charttwo-1.png" width="768" /></p>
 </section>
 <section class="slide level2">
@@ -873,11 +881,11 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 <h3 id="trellis-chart-value">Trellis chart – value</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(OrderTerritory
        ,<span class="kw">aes</span>(<span class="dt">x=</span><span class="kw">year</span>(OrderDate), <span class="dt">y=</span>TotalDue, 
-            <span class="dt">colour=</span>Name))+<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)+
-<span class="st">  </span><span class="kw">theme_minimal</span>()+<span class="st">                  </span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">label=</span>dollar)+<span class="st"> </span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(~Name,<span class="dt">ncol =</span> <span class="dv">2</span>) +<span class="st">   </span><span class="co"># trellis</span>
+            <span class="dt">colour=</span>Name))<span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span><span class="st">                  </span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">label=</span>dollar)<span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Name,<span class="dt">ncol =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st">   </span><span class="co"># trellis</span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Order Year&quot;</span>)</code></pre></div>
 </section>
 <section class="slide level2">
@@ -886,7 +894,7 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 <p><img src="Rintro_files/figure-revealjs/chartthree-1.png" width="768" /></p>
 </section>
 <section id="step-7-produce-presentation" class="slide level2">
-<h1>Step 7: Produce presentation</h1>
+<h2>Step 7: Produce presentation</h2>
 <p>I need a slide deck for the boss to take use!</p>
 <ul>
 <li>Use <code>rmarkdown</code> to produce <code>SamplePresentation.Rmd</code></li>
@@ -898,7 +906,7 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 </ul>
 </section>
 <section id="step-8-produce-report" class="slide level2">
-<h1>Step 8: Produce report</h1>
+<h2>Step 8: Produce report</h2>
 <p>I need a report for people to play with</p>
 <ul>
 <li>Use <code>shiny</code> to produce interactive online reports</li>
@@ -912,7 +920,7 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 <span class="kw">runApp</span>(<span class="st">&quot;.&quot;</span>)</code></pre></div>
 </section>
 <section id="conclusion" class="slide level2 columns-2">
-<h1>Conclusion</h1>
+<h2>Conclusion</h2>
 <p><img src="https://github.com/stephlocke/lazyCDN/blob/master/PointyHairedBoss.jpg?raw=true" alt="Pointy Haired Boss" /></p>
 <p>Phew, he’s got something to show to the Board &amp; a web page he can play with all day long.</p>
 <p>We learnt along the way:</p>
@@ -926,7 +934,7 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 <p>Not bad for a day’s work!</p>
 </section>
 <section id="where-next" class="slide level2 smaller">
-<h1>Where next?</h1>
+<h2>Where next?</h2>
 <p>OK, some basics covered but where to go from here? (<code>F</code>= Free, <code>*</code>=Discount, <code>HO</code>=Hands on)</p>
 <h3 id="online">Online</h3>
 <ul>
@@ -944,7 +952,7 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
 </ul>
 </section>
 <section id="get-this-presentation" class="slide level2">
-<h1>Get this presentation</h1>
+<h2>Get this presentation</h2>
 <p>This presentation is available on <a href="https://github.com/stephlocke/Rtraining">github.com/stephlocke/Rtraining</a>. All the code is available for you to take a copy and play with to help you learn on the go.</p>
 <p>If you have any questions, contact me!</p>
 <p><a href="http://itsalocke.com">itsalocke.com</a> | <a href="https://github.com/StephLocke">github.com/StephLocke</a> | <a href="https://twitter.com/stefflocke">@SteffLocke</a></p>
@@ -952,8 +960,8 @@ OrderTerritory &lt;-<span class="st"> </span>Region[OrderTerritory]</code></pre>
     </div>
   </div>
 
-  <script src="Rintro_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
-  <script src="Rintro_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+  <script src="T:\sites\superbuild\pres-r\docs\Rintro_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="T:\sites\superbuild\pres-r\docs\Rintro_files/reveal.js-3.3.0.1/js/reveal.js"></script>
 
   <script>
 

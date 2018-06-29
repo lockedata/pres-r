@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Steph Locke" />
-  <meta name="dcterms.date" content="2017-11-09" />
+  <meta name="dcterms.date" content="2018-06-29" />
   <title>R for developers</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="r101_files/reveal.js-3.3.0.1/css/reveal.css"/>
+  <link rel="stylesheet" href="T:\sites\superbuild\pres-r\docs\r101_files/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
 <style type="text/css">
@@ -50,7 +50,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="r101_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="T:\sites\superbuild\pres-r\docs\r101_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
 
 
   <!-- some tweaks to reveal css -->
@@ -490,11 +490,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section>
     <h1 class="title">R for developers</h1>
     <h2 class="author">Steph Locke</h2>
-    <h3 class="date">2017-11-09</h3>
+    <h3 class="date">2018-06-29</h3>
 </section>
 
 <section id="steph-locke-who-i-am" class="slide level2">
-<h1>Steph Locke | Who I am</h1>
+<h2>Steph Locke | Who I am</h2>
 <ul>
 <li>Data specialist</li>
 <li>Locke Data</li>
@@ -503,7 +503,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ul>
 </section>
 <section><section id="r" class="titleslide slide level1"><h1>R</h1></section><section id="r-a-brief-history" class="slide level2">
-<h1>R | A brief history</h1>
+<h2>R | A brief history</h2>
 <ul>
 <li>S, born 1976 in Bell Laboratories</li>
 <li>R, born 1997 in a uni in NZ</li>
@@ -512,7 +512,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>R now ranked 6th most popular language by IEEE</li>
 </ul>
 </section><section id="r-why-use-it" class="slide level2">
-<h1>R | Why use it?</h1>
+<h2>R | Why use it?</h2>
 <ul>
 <li>For the stats</li>
 <li>For the cross-platform capability</li>
@@ -522,7 +522,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>For the money</li>
 </ul>
 </section><section id="r-why-not-python" class="slide level2">
-<h1>R | Why not Python?</h1>
+<h2>R | Why not Python?</h2>
 <p>Firstly, Python is a valid way to go. There are number of really good libraries out there for number crunching etc. and it is a well written language with few “quirks”</p>
 <p>Secondly, why R is my preference:</p>
 <ul>
@@ -535,7 +535,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <p>But… “production” code can be faster in Python</p>
 </section></section>
 <section><section id="r-fundamentals" class="titleslide slide level1"><h1>R fundamentals</h1></section><section id="basics" class="slide level2">
-<h1>Basics</h1>
+<h2>Basics</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define a variable</span>
 a&lt;-<span class="dv">25</span>
 
@@ -543,10 +543,10 @@ a&lt;-<span class="dv">25</span>
 a</code></pre></div>
 <pre><code>## [1] 25</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Do something to it</span>
-a<span class="dv">+1</span></code></pre></div>
+a<span class="op">+</span><span class="dv">1</span></code></pre></div>
 <pre><code>## [1] 26</code></pre>
 </section><section id="data-types-p1" class="slide level2">
-<h1>Data types | p1</h1>
+<h2>Data types | p1</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Numeric</span>
 <span class="dv">25</span></code></pre></div>
 <pre><code>## [1] 25</code></pre>
@@ -557,21 +557,21 @@ a<span class="dv">+1</span></code></pre></div>
 <span class="ot">TRUE</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </section><section id="data-types-p2" class="slide level2">
-<h1>Data types | p2</h1>
+<h2>Data types | p2</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Dates</span>
 <span class="kw">as.Date</span>(<span class="st">&quot;2015-08-05&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;2015-08-05&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2015-08-01&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;2015-08-01 UTC&quot;</code></pre>
+<pre><code>## [1] &quot;2015-08-01 BST&quot;</code></pre>
 </section><section id="data-types-p3" class="slide level2">
-<h1>Data types | p3</h1>
+<h2>Data types | p3</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Factor</span>
 <span class="kw">as.numeric</span>(<span class="kw">factor</span>(<span class="st">&quot;25&quot;</span>))</code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="kw">factor</span>(<span class="st">&quot;25&quot;</span>))</code></pre></div>
 <pre><code>## [1] &quot;25&quot;</code></pre>
 </section><section id="constructs-p1" class="slide level2">
-<h1>Constructs | p1</h1>
+<h2>Constructs | p1</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Vector</span>
 a&lt;-<span class="kw">c</span>(<span class="dv">25</span>, <span class="dv">30</span>)
 
@@ -581,9 +581,9 @@ a&lt;-<span class="kw">c</span>(<span class="dv">25</span>, <span class="dv">30<
 ## [1,]   25
 ## [2,]   30</code></pre>
 </section><section id="constructs-p2" class="slide level2">
-<h1>Constructs | p2</h1>
+<h2>Constructs | p2</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Data frame</span>
-<span class="kw">data.frame</span>(a,<span class="dt">b=</span>a/<span class="dv">5</span>,<span class="dt">c=</span>LETTERS[<span class="dv">1</span>:<span class="dv">2</span>])</code></pre></div>
+<span class="kw">data.frame</span>(a,<span class="dt">b=</span>a<span class="op">/</span><span class="dv">5</span>,<span class="dt">c=</span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</code></pre></div>
 <pre><code>##    a b c
 ## 1 25 5 A
 ## 2 30 6 B</code></pre>
@@ -597,108 +597,108 @@ a&lt;-<span class="kw">c</span>(<span class="dv">25</span>, <span class="dv">30<
 ## [1,]   25
 ## [2,]   30</code></pre>
 </section><section id="subsetting-vectors" class="slide level2">
-<h1>Subsetting | Vectors</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">20</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>) <span class="co"># setup</span>
+<h2>Subsetting | Vectors</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>) <span class="co"># setup</span>
 a <span class="co"># visual check</span></code></pre></div>
-<pre><code>## [1] 12 16  7 18 13</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a[<span class="dv">1</span>:<span class="dv">2</span>] <span class="co"># row numbers</span></code></pre></div>
-<pre><code>## [1] 12 16</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a[a&lt;=<span class="dv">10</span>] <span class="co"># value filters</span></code></pre></div>
-<pre><code>## [1] 7</code></pre>
+<pre><code>## [1] 14 16 17 19  4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="co"># row numbers</span></code></pre></div>
+<pre><code>## [1] 14 16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a[a<span class="op">&lt;=</span><span class="dv">10</span>] <span class="co"># value filters</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
 </section><section id="subsetting-data.frames-p1" class="slide level2">
-<h1>Subsetting | Data.frames p1</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span>:<span class="dv">10</span>, <span class="dt">b =</span> LETTERS[<span class="dv">1</span>:<span class="dv">5</span>]) <span class="co"># setup</span>
-df[<span class="dv">1</span>:<span class="dv">2</span>,] <span class="co"># row numbers</span></code></pre></div>
+<h2>Subsetting | Data.frames p1</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">b =</span> LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]) <span class="co"># setup</span>
+df[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,] <span class="co"># row numbers</span></code></pre></div>
 <pre><code>##   a b
 ## 1 1 A
 ## 2 2 B</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df$a&lt;<span class="dv">2</span>,] <span class="co"># value filters</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df<span class="op">$</span>a<span class="op">&lt;</span><span class="dv">2</span>,] <span class="co"># value filters</span></code></pre></div>
 <pre><code>##   a b
 ## 1 1 A</code></pre>
 </section><section id="subsetting-data.frames-p2" class="slide level2">
-<h1>Subsetting | Data.frames p2</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df$a&lt;<span class="dv">3</span>,<span class="dv">1</span>] <span class="co"># column filter</span></code></pre></div>
+<h2>Subsetting | Data.frames p2</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df<span class="op">$</span>a<span class="op">&lt;</span><span class="dv">3</span>,<span class="dv">1</span>] <span class="co"># column filter</span></code></pre></div>
 <pre><code>## [1] 1 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df$a&lt;<span class="dv">3</span>,<span class="dv">1</span>, drop=<span class="ot">FALSE</span>] <span class="co"># column filter (keep data.frame)</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df<span class="op">$</span>a<span class="op">&lt;</span><span class="dv">3</span>,<span class="dv">1</span>, drop=<span class="ot">FALSE</span>] <span class="co"># column filter (keep data.frame)</span></code></pre></div>
 <pre><code>##   a
 ## 1 1
 ## 2 2</code></pre>
 </section><section id="functions" class="slide level2">
-<h1>Functions</h1>
+<h2>Functions</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define a function</span>
-showAsPercent&lt;-function(x) {
-  <span class="kw">paste0</span>(<span class="kw">round</span>(x*<span class="dv">100</span> ,<span class="dv">0</span>) ,<span class="st">&quot;%&quot;</span>)
+showAsPercent&lt;-<span class="cf">function</span>(x) {
+  <span class="kw">paste0</span>(<span class="kw">round</span>(x<span class="op">*</span><span class="dv">100</span> ,<span class="dv">0</span>) ,<span class="st">&quot;%&quot;</span>)
 }
 
 <span class="co"># Call a function</span>
 <span class="kw">showAsPercent</span>(<span class="fl">0.1</span>)</code></pre></div>
 <pre><code>## [1] &quot;10%&quot;</code></pre>
 </section><section id="extending-r" class="slide level2">
-<h1>Extending R</h1>
+<h2>Extending R</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get a package</span>
 <span class="kw">install.packages</span>(<span class="st">&quot;caret&quot;</span>)
 
 <span class="co"># Activate a package</span>
 <span class="kw">library</span>(caret)</code></pre></div>
 </section><section id="what-does-r-look-like-oo" class="slide level2">
-<h1>What does R look like? | OO</h1>
+<h2>What does R look like? | OO</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Orig OO (s3): cyclismo.org/tutorial/R/s3Classes.html</span>
 <span class="kw">library</span>(R6)
 Loan&lt;-<span class="kw">R6Class</span>(<span class="st">&quot;Loan&quot;</span>, 
               <span class="dt">public=</span><span class="kw">list</span>(<span class="dt">term=</span><span class="ot">NA</span>
-                         ,<span class="dt">initialize=</span>function(term){
-                           if(!<span class="kw">missing</span>(term)){ 
-                              self$term&lt;-term 
+                         ,<span class="dt">initialize=</span><span class="cf">function</span>(term){
+                           <span class="cf">if</span>(<span class="op">!</span><span class="kw">missing</span>(term)){ 
+                              self<span class="op">$</span>term&lt;-term 
                               }} 
-                         ,<span class="dt">extendBy=</span>function(ext){ 
-                            self$term&lt;-self$term+ext
+                         ,<span class="dt">extendBy=</span><span class="cf">function</span>(ext){ 
+                            self<span class="op">$</span>term&lt;-self<span class="op">$</span>term<span class="op">+</span>ext
                             }))</code></pre></div>
 </section><section id="what-does-r-look-like-oo-1" class="slide level2">
-<h1>What does R look like? | OO</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">acc&lt;-Loan$<span class="kw">new</span>(<span class="dv">36</span>)
-acc$<span class="kw">extendBy</span>(<span class="dv">6</span>)
-acc$term</code></pre></div>
+<h2>What does R look like? | OO</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">acc&lt;-Loan<span class="op">$</span><span class="kw">new</span>(<span class="dv">36</span>)
+acc<span class="op">$</span><span class="kw">extendBy</span>(<span class="dv">6</span>)
+acc<span class="op">$</span>term</code></pre></div>
 <pre><code>## [1] 42</code></pre>
 </section></section>
 <section><section id="building-up-an-r-script" class="titleslide slide level1"><h1>Building up an R script</h1></section><section id="commands-magrittr" class="slide level2">
-<h1>Commands | magrittr</h1>
+<h2>Commands | magrittr</h2>
 <p>magrittr allows you to pass one thing into another instead of writing lots of brackets</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(magrittr)
 <span class="co"># Typical</span>
 <span class="kw">pairs</span>(iris)
 <span class="kw">pairs</span>(<span class="kw">tail</span>(iris))
-<span class="kw">pairs</span>(<span class="kw">tail</span>(iris,<span class="kw">nrow</span>(iris)/<span class="dv">5</span>))
+<span class="kw">pairs</span>(<span class="kw">tail</span>(iris,<span class="kw">nrow</span>(iris)<span class="op">/</span><span class="dv">5</span>))
 
 <span class="co"># Pipe</span>
-iris %&gt;%<span class="st"> </span>pairs
-iris %&gt;%<span class="st"> </span>tail %&gt;%<span class="st"> </span>pairs
-iris %&gt;%<span class="st"> </span>{<span class="kw">tail</span>(.,<span class="kw">nrow</span>(.)/<span class="dv">5</span>)} %&gt;%<span class="st"> </span>pairs</code></pre></div>
+iris <span class="op">%&gt;%</span><span class="st"> </span>pairs
+iris <span class="op">%&gt;%</span><span class="st"> </span>tail <span class="op">%&gt;%</span><span class="st"> </span>pairs
+iris <span class="op">%&gt;%</span><span class="st"> </span>{<span class="kw">tail</span>(.,<span class="kw">nrow</span>(.)<span class="op">/</span><span class="dv">5</span>)} <span class="op">%&gt;%</span><span class="st"> </span>pairs</code></pre></div>
 </section><section id="commands-dplyr" class="slide level2">
-<h1>Commands | dplyr</h1>
+<h2>Commands | dplyr</h2>
 <p>Use <code>dplyr</code> to transform your datasets</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-iris %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Petal.Width&lt;<span class="dv">2</span>) %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(Species) %&gt;%
+iris <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(Petal.Width<span class="op">&lt;</span><span class="dv">2</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarise_each</span>(<span class="kw">funs</span>(mean))</code></pre></div>
 <pre><code>## `summarise_each()` is deprecated.
 ## Use `summarise_all()`, `summarise_at()` or `summarise_if()` instead.
 ## To map `funs` over all variables, use `summarise_all()`</code></pre>
 <pre><code>## # A tibble: 3 x 5
-##      Species Sepal.Length Sepal.Width Petal.Length Petal.Width
-##       &lt;fctr&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
-## 1     setosa     5.006000    3.428000      1.46200    0.246000
-## 2 versicolor     5.936000    2.770000      4.26000    1.326000
-## 3  virginica     6.338095    2.790476      5.32381    1.761905</code></pre>
+##   Species    Sepal.Length Sepal.Width Petal.Length Petal.Width
+##   &lt;fct&gt;             &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+## 1 setosa             5.01        3.43         1.46       0.246
+## 2 versicolor         5.94        2.77         4.26       1.33 
+## 3 virginica          6.34        2.79         5.32       1.76</code></pre>
 </section><section id="read-data-csv-excel" class="slide level2">
-<h1>Read data | CSV &amp; Excel</h1>
+<h2>Read data | CSV &amp; Excel</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 OrderData&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;Order.csv&quot;</span>)
 
 <span class="kw">library</span>(readxl)
 OrderData&lt;-<span class="kw">read_sheet</span>(<span class="st">&quot;Order.xlsx&quot;</span>,<span class="st">&quot;Orders&quot;</span>)</code></pre></div>
 </section><section id="read-data-databases" class="slide level2">
-<h1>Read data | Databases</h1>
+<h2>Read data | Databases</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(RODBC)
 azure &lt;-<span class="st"> </span><span class="kw">odbcDriverConnect</span>(
   <span class="st">&quot;Driver={SQL Server Native Client 11.0};</span>
@@ -710,11 +710,11 @@ azure &lt;-<span class="st"> </span><span class="kw">odbcDriverConnect</span>(
 Order    &lt;-<span class="st"> </span><span class="kw">sqlQuery</span>( azure, 
             <span class="st">&quot;SELECT * FROM [Sales].[SalesOrderHeader]&quot;</span>)</code></pre></div>
 </section><section id="write-data-csv" class="slide level2">
-<h1>Write data | CSV</h1>
+<h2>Write data | CSV</h2>
 <p>This is easiest and most portable option</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(iris,<span class="st">&quot;iris.csv&quot;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</code></pre></div>
 </section><section id="script-best-practices" class="slide level2">
-<h1>Script best practices</h1>
+<h2>Script best practices</h2>
 <ul>
 <li>Make sure to declare packages using <code>library()</code> at the top of the script</li>
 <li>Label sections of work using <code># ---- SectionName ----</code> to allow you to pick up the code into a LaTeX or markdown doc later</li>
@@ -766,14 +766,14 @@ predict(myModel,irisHoldout)
 -->
 </section></section>
 <section><section id="best-practices" class="titleslide slide level1"><h1>“Best” practices</h1></section><section id="charts" class="slide level2">
-<h1>Charts</h1>
+<h2>Charts</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 <span class="kw">ggplot</span>(<span class="dt">data=</span>iris, 
-       <span class="kw">aes</span>(<span class="dt">x=</span>Sepal.Width, <span class="dt">y=</span>Sepal.Length, <span class="dt">colour=</span>Species)) +<span class="st"> </span>
+       <span class="kw">aes</span>(<span class="dt">x=</span>Sepal.Width, <span class="dt">y=</span>Sepal.Length, <span class="dt">colour=</span>Species)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() </code></pre></div>
 <p><img src="r101_files/figure-revealjs/unnamed-chunk-25-1.png" width="768" /></p>
 </section><section id="documentation" class="slide level2">
-<h1>Documentation</h1>
+<h2>Documentation</h2>
 <p>Document as you go!</p>
 <ul>
 <li>Use markdown to use a light syntax for integrating your code and commentary</li>
@@ -783,10 +783,10 @@ predict(myModel,irisHoldout)
 <li>Present in HTML, slide decks, PDF, Word at the click of a button</li>
 </ul>
 </section><section id="interactive-reports" class="slide level2">
-<h1>Interactive reports</h1>
+<h2>Interactive reports</h2>
 <p>Consider doing a <code>shiny</code> application that explores the data and findings</p>
 </section><section id="workflow-best-practices" class="slide level2">
-<h1>Workflow best practices</h1>
+<h2>Workflow best practices</h2>
 <ul>
 <li>Focus on working code &amp; documentation</li>
 <li>Use source control (github)</li>
@@ -799,7 +799,7 @@ predict(myModel,irisHoldout)
 </ul>
 </section></section>
 <section><section id="next-steps" class="titleslide slide level1"><h1>Next steps</h1></section><section id="find-out-more" class="slide level2">
-<h1>Find out more</h1>
+<h2>Find out more</h2>
 <h3 id="online">Online</h3>
 <ul>
 <li>Modern R <a href="http://datacamp.com">DataCamp</a></li>
@@ -814,7 +814,7 @@ predict(myModel,irisHoldout)
 <li>Conferences e.g. <a href="http://www.earl-conference.com/">EARL</a>, <a href="http://sqlrelay.co.uk">SQL Relay</a></li>
 </ul>
 </section><section id="get-this-presentation" class="slide level2">
-<h1>Get this presentation</h1>
+<h2>Get this presentation</h2>
 <p>This presentation is available on <a href="https://github.com/stephlocke/Rtraining">github.com/stephlocke/Rtraining</a>. All the code is available for you to take a copy and play with to help you learn on the go.</p>
 <p>If you have any questions, contact me!</p>
 <p><a href="http://itsalocke.com">itsalocke.com</a> | <a href="https://github.com/StephLocke">github.com/StephLocke</a> | <a href="https://twitter.com/stefflocke">@SteffLocke</a></p>
@@ -822,8 +822,8 @@ predict(myModel,irisHoldout)
     </div>
   </div>
 
-  <script src="r101_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
-  <script src="r101_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+  <script src="T:\sites\superbuild\pres-r\docs\r101_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="T:\sites\superbuild\pres-r\docs\r101_files/reveal.js-3.3.0.1/js/reveal.js"></script>
 
   <script>
 

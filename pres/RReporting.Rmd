@@ -1,6 +1,6 @@
 ---
 title: 'R for reporting'
-author: "Steph Locke\n@SteffLocke\nLocke Data"
+author: "Steph Locke @SteffLocke @LockeData"
 date: '`r Sys.Date()`'
 ---
 
@@ -28,6 +28,8 @@ knitr::opts_chunk$set(echo = TRUE, tidy=TRUE, size="large", tidy.opts=list( widt
 ## shiny++
 - shinydashboard
 - flexdashboard
+- plotly
+- rpivotTable
 
 # R for static reports
 
@@ -58,6 +60,11 @@ knitr::opts_chunk$set(echo = TRUE, tidy=TRUE, size="large", tidy.opts=list( widt
 - AN Other hosting
 - docker
 
+## R integrated
+- Power BI
+- Tableau
+- Jupyter
+
 # Skills
 
 ## R
@@ -83,7 +90,7 @@ knitr::opts_chunk$set(echo = TRUE, tidy=TRUE, size="large", tidy.opts=list( widt
 
 # Conclusion
 
-## Agenda
+## Covered
 - R for interactive reports
 - R for static reports
 - Architectures
