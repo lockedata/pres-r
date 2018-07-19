@@ -2,56 +2,113 @@
 title: "R for developers"
 author: "Steph Locke"
 date: "`r Sys.Date()`"
-output:
-  Rtraining::stephSlideStyle:
-    css: NULL
-  beamer_presentation:
-    template: default.tex
-    theme: m
-    pandoc_args: [
-      "--latex-engine=xelatex"
-    ]
+output: 
+  html_document: 
+    df_print: tibble
 ---
 
-## Steph Locke | Who I am
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, tidy=TRUE, message = FALSE, warning = FALSE)
+```
+# Upfront stuff
+## Agenda
+- Why you should know R
+- What are the ways you can write R
+- How you can help R users improve their code
+- How R users can consume your code
+- How you can get R code into production
 
-- Data specialist
+## Me
+- Data Scientist
+- Microsoft AI MVP
+- Microsoft Machine Learning MCT
+- Author: geni.us/rfundamentals
 - Locke Data
-- blog: [itsalocke.com](http://itsalocke.com)
-- t: [\@stefflocke](http://twitter.com/stefflocke)
+- t: @theStephLocke
 
-# R
+## Locke Data
+- Data Science Consultancy
+- Focussed on helping orgs *start* 
+- Site: itsalocke.com
+- t: @lockedata
 
-## R | A brief history
-- S, born 1976 in Bell Laboratories
-- R, born 1997 in a uni in NZ
-- R Foundation, born 2002
-- R Consortium, born 2015
-- R now ranked 6th most popular language by IEEE
+## This talk
+- Get the slides at itsalocke.com/talks
+- Grab a sticker and/or a business card
+- Book giveaway for good questions
+- Limited supply of tshirts available
 
-## R | Why use it?
-- For the stats
-- For the cross-platform capability
-- For the reproducibility
-- For the time it can save
-- For the flexibility
-- For the money
+# Why you should know R
+```{r whyyoushouldknowr}
+```
 
-## R | Why not Python?
-Firstly, Python is a valid way to go. There are number of really good libraries out there for number crunching etc. and it is a well written language with few "quirks"
+## Why
+- Data Science
+- Data wrangling
+- Cross-platform capability
+- Reproducibility
+- Efficeincy
+- Flexibility
+- Cash
 
-Secondly, why R is my preference:
+## Why not Python?
+> It isn't one or the other
 
-- Easy install
-- Strong community base
-- Data focused
-- Very flexible and extendable
-- It's the favourite to win
+There's plenty of ways for these two languages to interoperate and co-exist. Pick the right hammer for a given nail!
 
-But... "production" code can be faster in Python 
+## Data profiling
+```{r eval = FALSE}
+DataExplorer::create_report(iris)
+```
 
-# R fundamentals
-## Basics
+## Nice webscraping
+
+```{r, results='hide', echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(rvest)
+```
+
+```{r tidy=FALSE}
+library(tidyverse)
+library(rvest)
+
+"https://en.wikipedia.org/wiki/List_of_superhero_debuts" %>%
+  read_html() %>%
+  html_nodes(xpath = "//*[@id='mw-content-text']/div/table") %>%
+  map(html_table, fill = TRUE) %>%
+  map_df( ~ mutate(., `Year Debuted` = as.character(`Year Debuted`))) %>%
+  mutate(`Char_Team` = coalesce(`Character / Team / Series`, `Character / Team`)) %>%
+  select(Char_Team, Year_Debut = `Year Debuted`) %>%
+  mutate(Year = str_extract(Year_Debut, "[0-9]{4}")) %>%
+  skimr::skim()
+```
+
+
+## Great dataviz
+```{r}
+library(leaflet)
+data(quakes)
+
+# Show first 20 rows from the `quakes` dataset
+leaflet(data = quakes[1:20,]) %>% addTiles() %>%
+  addMarkers(~long, ~lat, popup = ~as.character(mag), label = ~as.character(mag))
+```
+
+## Super apps
+[Cost of Coffee](https://stef.shinyapps.io/cost_of_coffee/)
+
+## Data driven content
+- R
+- Python
+- JS
+- Bash
+- SQL
+
+# Ways you can write R
+```{r waysyoucanwriter}
+```
+
+## Variables, comments, etc
 ```{r}
 # Define a variable
 a<-25
@@ -63,69 +120,19 @@ a
 a+1
 ```
 
-## Data types | p1
-```{r}
-# Numeric
-25
-
-# Character
-"25"
-
-# Logical
-TRUE
-```
-
-## Data types | p2
-```{r}
-# Dates
-as.Date("2015-08-05")
-as.POSIXct("2015-08-01")
-```
-
-## Data types | p3
-```{r}
-# Factor
-as.numeric(factor("25"))
-as.character(factor("25"))
-```
-
-## Constructs | p1
+## Structures
 ```{r}
 # Vector
-a<-c(25, 30)
+a = c(25, 30)
 
 # Matrix
 matrix(a)
-```
 
-## Constructs | p2
-```{r}
 # Data frame
 data.frame(a,b=a/5,c=LETTERS[1:2])
 
 # List
 list(vector=a, matrix=matrix(a))
-```
-
-## Subsetting | Vectors
-```{r}
-a <- sample(1:20, size = 5, replace = TRUE) # setup
-a # visual check
-a[1:2] # row numbers
-a[a<=10] # value filters
-```
-
-## Subsetting | Data.frames p1
-```{r}
-df <- data.frame(a=1:10, b = LETTERS[1:5]) # setup
-df[1:2,] # row numbers
-df[df$a<2,] # value filters
-```
-
-## Subsetting | Data.frames p2
-```{r}
-df[df$a<3,1] # column filter
-df[df$a<3,1, drop=FALSE] # column filter (keep data.frame)
 ```
 
 ## Functions
@@ -142,14 +149,31 @@ showAsPercent(0.1)
 ## Extending R
 ```{r, eval=FALSE }
 # Get a package
-install.packages("caret")
+install.packages("tibble")
 
 # Activate a package
-library(caret)
+library(tibble)
+
+# Use the package as a namespace
+tibble::as.tibble(a)
+```
+
+## Base (similar to pandas)
+
+```{r}
+df <- data.frame(a=1:10, b = LETTERS[1:5]) # setup
+df[1:2,] # row numbers
+df[df$a<2,] # value filters
+```
+
+## Base (similar to pandas)
+```{r}
+df[df$a<3,1] # column filter
+df[df$a<3,1, drop=FALSE] # column filter (keep data.frame)
 ```
 
 
-## What does R look like? | OO
+## OO
 ```{r, results='hide', echo=FALSE, warning=FALSE, message=FALSE}
 library("R6")
 ```
@@ -168,81 +192,38 @@ Loan<-R6Class("Loan",
                             }))
 ```
 
-## What does R look like? | OO
+
+## OO
 ```{r}
 acc<-Loan$new(36)
 acc$extendBy(6)
 acc$term
 ```
 
-
-# Building up an R script
-
-## Commands | magrittr
-magrittr allows you to pass one thing into another instead of writing lots of brackets
+## Functional
 ```{r, results='hide', echo=FALSE, warning=FALSE, message=FALSE}
-library(magrittr)
-```
-
-```{r, results='hide', eval=FALSE}
-library(magrittr)
-# Typical
-pairs(iris)
-pairs(tail(iris))
-pairs(tail(iris,nrow(iris)/5))
-
-# Pipe
-iris %>% pairs
-iris %>% tail %>% pairs
-iris %>% {tail(.,nrow(.)/5)} %>% pairs
-```
-
-## Commands | dplyr
-Use `dplyr` to transform your datasets
-
-```{r, results='hide', echo=FALSE, warning=FALSE, message=FALSE}
-library(dplyr)
 library(magrittr)
 ```
 
 ```{r}
-library(dplyr)
+library(magrittr)
+iris %>% 
+  {tail(.,nrow(.)/5)} %>% 
+  pairs()
+```
+
+## Functional
+
+```{r}
+library(tidyverse)
 iris %>% 
   filter(Petal.Width<2) %>%
   group_by(Species) %>%
-  summarise_each(funs(mean))
+  summarise_all(mean)
 ```
 
-## Read data | CSV & Excel
-```{r, eval=FALSE}
-library(readr)
-OrderData<-read_csv("Order.csv")
 
-library(readxl)
-OrderData<-read_sheet("Order.xlsx","Orders")
-```
-
-## Read data | Databases
-```{r, eval=FALSE}
-library(RODBC)
-azure <- odbcDriverConnect(
-  "Driver={SQL Server Native Client 11.0};
-  Server=mhknbn2kdz.database.windows.net;
-  Database=AdventureWorks2012;
-  Uid=sqlfamily;
-  Pwd=sqlf@m1ly;")
-
-Order    <- sqlQuery( azure, 
-            "SELECT * FROM [Sales].[SalesOrderHeader]")
-```
-
-## Write data | CSV
-This is easiest and most portable option
-```{r, eval=FALSE}
-write.csv(iris,"iris.csv", row.names = FALSE)
-```
-
-## Script best practices
+## Best practices
 - Make sure to declare packages using `library()` at the top of the script
 - Label sections of work using `# ---- SectionName ----` to allow you to pick up the code into a LaTeX or markdown doc later
 - Never delete <- always make new objects with modifications
@@ -250,54 +231,7 @@ write.csv(iris,"iris.csv", row.names = FALSE)
 - Try to do all data manipulation at the top of the script
 - Reuse your code by writing functions for anything you do frequently
 
-<!--
-# Apply some models to your data
 
-## Some common models
-```{r, eval=FALSE}
-# linear models (inc. logistic)
-glm(data=iris, Sepal.Width~Sepal.Length)
-
-# k-means clustering
-kmeans(iris[,1:4],centers = 3)
-```
-
-## Sampling
-```{r, eval=FALSE}
-library(caret)
-sampleRecords<-createDataPartition(iris$Species
-                                   , groups = 2, p = 0.7)$Resample1
-irisTraining<-iris[sampleRecords,]
-irisHoldout<-iris[-sampleRecords,]
-```
-
-## Extracting predictions
-```{r, eval=FALSE}
-# linear models (inc. logistic)
-myModel<-glm(data=irisTraining, Sepal.Width~Sepal.Length)
-
-# predictions for training sample
-myModel$fitted.values
-
-# predictions for a new set of data
-predict(myModel,irisHoldout)
-```
-
-## More info
-- There is a lot of documentation out there on stats in R
-- Use [Cross Validated](http://stats.stackexchange.com/) for stats questions
-- The package `caret` is really powerful and provides an interface to lots of statistical methods and utilities.
--->
-
-# "Best" practices
-
-## Charts
-```{r, echo=TRUE,eval=TRUE, fig.height=4}
-library(ggplot2)
-ggplot(data=iris, 
-       aes(x=Sepal.Width, y=Sepal.Length, colour=Species)) + 
-  geom_point() 
-```
 
 ## Documentation
 Document as you go!
@@ -307,10 +241,6 @@ Document as you go!
 - Use these instead of Excel or Word so that a change in assumption means updating the code and re-running the doc
 - Load your main R file up and use the labels from `# ---- SectionName ----` to save repetition
 - Present in HTML, slide decks, PDF, Word at the click of a button
-
-## Interactive reports
-Consider doing a `shiny` application that explores the data and findings
-
 
 ## Workflow best practices
 - Focus on working code & documentation
@@ -322,25 +252,133 @@ Consider doing a `shiny` application that explores the data and findings
 - Use Rstudio
 - Consider structuring as a package
 
-# Next steps
-## Find out more
+## Next steps
+- geni.us/rfundamentals
+- notebooks.azure.com/stephlocke/libraries
+- #rstats
+- datacamp.com
+- r-bloggers.com
 
-### Online
-- Modern R [DataCamp](http://datacamp.com) 
-- Statistics R [Coursera](https://www.coursera.org/specialization/jhudatascience) 
-- [R-bloggers](http://www.r-bloggers.com/) 
-- [Advanced R programming](http://adv-r.had.co.nz/)
-- [Writing R packages](http://r-pkgs.had.co.nz/)
+# How you can help R users improve their code
+```{r helprusersimprovetheircode}
+```
+
+## Building packages
+github.com/lockedata/pRojects
+geni.us/rpkgs
+
+```{r eval=FALSE}
+devtools::install_github("lockedata/projects")
+pRojects::createPackageProject()
+```
+
+## Writing tests
+- testthat
+- stubthat
+- mockr
+
+```{r}
+library(testthat)
+context("Some thing I want to test")
+test_that("things make sense",
+          expect_equal(1, 1))
+```
+
+## Code coverage
+```{r}
+library(covr)
+?package_coverage
+?codecov
+```
+
+## Continuous integration
+- Travis CI
+
+# How R users can consume your code
+
+## JavaScript
+```{r}
+library(V8)
+ct<-v8()
+ct$eval("var foo = 123")
+ct$eval("var bar = 456")
+ct$eval("foo + bar")
+
+ct$source(system.file("js/underscore.js", package="V8"))
+ct$call("_.filter", mtcars, JS("function(x){return x.mpg < 15}"))
+```
 
 
-### In-person
-- R user groups e.g. [LondonR](http://www.londonr.org/)
-- Conferences e.g. [EARL](http://www.earl-conference.com/), [SQL Relay](http://sqlrelay.co.uk)
+## Python
+```{r}
+library(reticulate)
+main <- import_main()
+builtins <- import_builtins()
+builtins$print('foo')
+py_run_string("x = 10")
+# access the python main module via the 'py' object
+py$x
+```
 
+## APIs
+```{r}
+library(httr)
+"https://foaas.com/version" %>% 
+  GET() %>% 
+  content()
+```
 
-## Get this presentation
-This presentation is available on [github.com/stephlocke/Rtraining](https://github.com/stephlocke/Rtraining). All the code is available for you to take a copy and play with to help you learn on the go.
+# How you can get R code into production
+```{r rtoproduction}
+```
 
-If you have any questions, contact me! 
+## plumber
+rplumber.io
 
-[itsalocke.com](http://itsalocke.com) | [github.com/StephLocke](https://github.com/StephLocke) | [\@SteffLocke](https://twitter.com/stefflocke)
+```{r eval=FALSE}
+#' Echo the parameter that was sent in
+#' @param msg The message to echo back.
+#' @get /echo
+function(msg=""){
+  list(msg = paste0("The message is: '", msg, "'"))
+}
+```
+
+## opencpu
+- opencpu.org
+- jsfiddle.net/user/opencpu/fiddles/
+
+## docker 
+- containerit
+- rize
+- liftr
+
+## Hadoop(ish)
+- sparklyr
+- ML Server
+- Jupyter
+
+## Microsoft
+- SQL Server sp_execute_external_script()
+- ML server 
+- Azure ML Studio
+- Power BI
+
+## Shiny
+- shinyserver
+- shinyapps.io
+- shinyproxy.io
+
+# Thank you!
+## Covered
+- Why you should know R
+- What are the ways you can write R
+- How you can help R users improve their code
+- How R users can consume your code
+- How you can get R code into production
+
+## Follow up
+- itsalocke.com/talks
+- geni.us/rfundamentals
+- t: @theStephLocke
+- t: @LockeData

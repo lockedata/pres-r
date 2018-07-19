@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Steph Locke" />
-  <meta name="dcterms.date" content="2018-06-29" />
+  <meta name="dcterms.date" content="2018-07-19" />
   <title>R for developers</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -482,6 +482,15 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
+    <script src="r101_files/htmlwidgets-1.2/htmlwidgets.js"></script>
+    <script src="r101_files/jquery-1.12.4/jquery.min.js"></script>
+    <link href="r101_files/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="r101_files/leaflet-1.3.1/leaflet.js"></script>
+    <link href="r101_files/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="r101_files/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+    <script src="r101_files/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="r101_files/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="r101_files/leaflet-binding-2.0.1/leaflet.js"></script>
 </head>
 <body>
   <div class="reveal">
@@ -490,105 +499,139 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section>
     <h1 class="title">R for developers</h1>
     <h2 class="author">Steph Locke</h2>
-    <h3 class="date">2018-06-29</h3>
+    <h3 class="date">2018-07-19</h3>
 </section>
 
-<section id="steph-locke-who-i-am" class="slide level2">
-<h2>Steph Locke | Who I am</h2>
+<section><section id="upfront-stuff" class="titleslide slide level1"><h1>Upfront stuff</h1></section><section id="agenda" class="slide level2">
+<h2>Agenda</h2>
 <ul>
-<li>Data specialist</li>
+<li>Why you should know R</li>
+<li>What are the ways you can write R</li>
+<li>How you can help R users improve their code</li>
+<li>How R users can consume your code</li>
+<li>How you can get R code into production</li>
+</ul>
+</section><section id="me" class="slide level2">
+<h2>Me</h2>
+<ul>
+<li>Data Scientist</li>
+<li>Microsoft AI MVP</li>
+<li>Microsoft Machine Learning MCT</li>
+<li>Author: geni.us/rfundamentals</li>
 <li>Locke Data</li>
-<li>blog: <a href="http://itsalocke.com">itsalocke.com</a></li>
-<li>t: <a href="http://twitter.com/stefflocke">@stefflocke</a></li>
+<li>t: <span class="citation" data-cites="theStephLocke">@theStephLocke</span></li>
 </ul>
-</section>
-<section><section id="r" class="titleslide slide level1"><h1>R</h1></section><section id="r-a-brief-history" class="slide level2">
-<h2>R | A brief history</h2>
+</section><section id="locke-data" class="slide level2">
+<h2>Locke Data</h2>
 <ul>
-<li>S, born 1976 in Bell Laboratories</li>
-<li>R, born 1997 in a uni in NZ</li>
-<li>R Foundation, born 2002</li>
-<li>R Consortium, born 2015</li>
-<li>R now ranked 6th most popular language by IEEE</li>
+<li>Data Science Consultancy</li>
+<li>Focussed on helping orgs <em>start</em></li>
+<li>Site: itsalocke.com</li>
+<li>t: <span class="citation" data-cites="lockedata">@lockedata</span></li>
 </ul>
-</section><section id="r-why-use-it" class="slide level2">
-<h2>R | Why use it?</h2>
+</section><section id="this-talk" class="slide level2">
+<h2>This talk</h2>
 <ul>
-<li>For the stats</li>
-<li>For the cross-platform capability</li>
-<li>For the reproducibility</li>
-<li>For the time it can save</li>
-<li>For the flexibility</li>
-<li>For the money</li>
+<li>Get the slides at itsalocke.com/talks</li>
+<li>Grab a sticker and/or a business card</li>
+<li>Book giveaway for good questions</li>
+<li>Limited supply of tshirts available</li>
 </ul>
-</section><section id="r-why-not-python" class="slide level2">
-<h2>R | Why not Python?</h2>
-<p>Firstly, Python is a valid way to go. There are number of really good libraries out there for number crunching etc. and it is a well written language with few “quirks”</p>
-<p>Secondly, why R is my preference:</p>
-<ul>
-<li>Easy install</li>
-<li>Strong community base</li>
-<li>Data focused</li>
-<li>Very flexible and extendable</li>
-<li>It’s the favourite to win</li>
-</ul>
-<p>But… “production” code can be faster in Python</p>
 </section></section>
-<section><section id="r-fundamentals" class="titleslide slide level1"><h1>R fundamentals</h1></section><section id="basics" class="slide level2">
-<h2>Basics</h2>
+<section><section id="why-you-should-know-r" class="titleslide slide level1"><h1>Why you should know R</h1></section><section id="why" class="slide level2">
+<h2>Why</h2>
+<ul>
+<li>Data Science</li>
+<li>Data wrangling</li>
+<li>Cross-platform capability</li>
+<li>Reproducibility</li>
+<li>Efficeincy</li>
+<li>Flexibility</li>
+<li>Cash</li>
+</ul>
+</section><section id="why-not-python" class="slide level2">
+<h2>Why not Python?</h2>
+<blockquote>
+<p>It isn’t one or the other</p>
+</blockquote>
+<p>There’s plenty of ways for these two languages to interoperate and co-exist. Pick the right hammer for a given nail!</p>
+</section><section id="data-profiling" class="slide level2">
+<h2>Data profiling</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DataExplorer<span class="op">::</span><span class="kw">create_report</span>(iris)</code></pre></div>
+</section><section id="nice-webscraping" class="slide level2">
+<h2>Nice webscraping</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(rvest)
+
+<span class="st">&quot;https://en.wikipedia.org/wiki/List_of_superhero_debuts&quot;</span> <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">read_html</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">html_nodes</span>(<span class="dt">xpath =</span> <span class="st">&quot;//*[@id=&#39;mw-content-text&#39;]/div/table&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">map</span>(html_table, <span class="dt">fill =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">map_df</span>( <span class="op">~</span><span class="st"> </span><span class="kw">mutate</span>(., <span class="st">`</span><span class="dt">Year Debuted</span><span class="st">`</span> =<span class="st"> </span><span class="kw">as.character</span>(<span class="st">`</span><span class="dt">Year Debuted</span><span class="st">`</span>))) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="st">`</span><span class="dt">Char_Team</span><span class="st">`</span> =<span class="st"> </span><span class="kw">coalesce</span>(<span class="st">`</span><span class="dt">Character / Team / Series</span><span class="st">`</span>, <span class="st">`</span><span class="dt">Character / Team</span><span class="st">`</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(Char_Team, <span class="dt">Year_Debut =</span> <span class="st">`</span><span class="dt">Year Debuted</span><span class="st">`</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Year =</span> <span class="kw">str_extract</span>(Year_Debut, <span class="st">&quot;[0-9]{4}&quot;</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span>skimr<span class="op">::</span><span class="kw">skim</span>()</code></pre></div>
+<pre><code>## Skim summary statistics
+##  n obs: 376 
+##  n variables: 3 
+## 
+## -- Variable type:character -----------------------------------------------------
+##    variable missing complete   n min max empty n_unique
+##   Char_Team       0      376 376   0  92     1      376
+##        Year       1      375 376   4   4     0       92
+##  Year_Debut       1      375 376   4  38     0      248</code></pre>
+</section><section id="great-dataviz" class="slide level2">
+<h2>Great dataviz</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(leaflet)
+<span class="kw">data</span>(quakes)
+
+<span class="co"># Show first 20 rows from the `quakes` dataset</span>
+<span class="kw">leaflet</span>(<span class="dt">data =</span> quakes[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, ]) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">addTiles</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">addMarkers</span>(<span class="op">~</span>long, <span class="op">~</span>lat, <span class="dt">popup =</span> <span class="op">~</span><span class="kw">as.character</span>(mag), 
+    <span class="dt">label =</span> <span class="op">~</span><span class="kw">as.character</span>(mag))</code></pre></div>
+<div id="htmlwidget-13dce5f50d32b74b3f03" style="width:768px;height:576px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-13dce5f50d32b74b3f03">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[-20.42,-20.62,-26,-17.97,-20.42,-19.68,-11.7,-28.11,-28.74,-17.47,-21.44,-12.26,-18.54,-21,-20.7,-15.94,-13.64,-17.83,-23.5,-22.63],[181.62,181.03,184.1,181.66,181.96,184.31,166.1,181.93,181.74,179.59,180.69,167,182.11,181.66,169.92,184.95,165.96,181.5,179.78,180.31],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["4.8","4.2","5.4","4.1","4","4","4.8","4.4","4.7","4.3","4.4","4.6","4.4","4.4","6.1","4.3","6","4.5","4.4","4.4"],null,null,null,["4.8","4.2","5.4","4.1","4","4","4.8","4.4","4.7","4.3","4.4","4.6","4.4","4.4","6.1","4.3","6","4.5","4.4","4.4"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-28.74,-11.7],"lng":[165.96,184.95]}},"evals":[],"jsHooks":[]}</script>
+</section><section id="super-apps" class="slide level2">
+<h2>Super apps</h2>
+<p><a href="https://stef.shinyapps.io/cost_of_coffee/">Cost of Coffee</a></p>
+</section><section id="data-driven-content" class="slide level2">
+<h2>Data driven content</h2>
+<ul>
+<li>R</li>
+<li>Python</li>
+<li>JS</li>
+<li>Bash</li>
+<li>SQL</li>
+</ul>
+</section></section>
+<section><section id="ways-you-can-write-r" class="titleslide slide level1"><h1>Ways you can write R</h1></section><section id="variables-comments-etc" class="slide level2">
+<h2>Variables, comments, etc</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define a variable</span>
-a&lt;-<span class="dv">25</span>
+a &lt;-<span class="st"> </span><span class="dv">25</span>
 
 <span class="co"># Call a variable</span>
 a</code></pre></div>
 <pre><code>## [1] 25</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Do something to it</span>
-a<span class="op">+</span><span class="dv">1</span></code></pre></div>
+a <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre></div>
 <pre><code>## [1] 26</code></pre>
-</section><section id="data-types-p1" class="slide level2">
-<h2>Data types | p1</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Numeric</span>
-<span class="dv">25</span></code></pre></div>
-<pre><code>## [1] 25</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Character</span>
-<span class="st">&quot;25&quot;</span></code></pre></div>
-<pre><code>## [1] &quot;25&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Logical</span>
-<span class="ot">TRUE</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-</section><section id="data-types-p2" class="slide level2">
-<h2>Data types | p2</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Dates</span>
-<span class="kw">as.Date</span>(<span class="st">&quot;2015-08-05&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;2015-08-05&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.POSIXct</span>(<span class="st">&quot;2015-08-01&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;2015-08-01 BST&quot;</code></pre>
-</section><section id="data-types-p3" class="slide level2">
-<h2>Data types | p3</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Factor</span>
-<span class="kw">as.numeric</span>(<span class="kw">factor</span>(<span class="st">&quot;25&quot;</span>))</code></pre></div>
-<pre><code>## [1] 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="kw">factor</span>(<span class="st">&quot;25&quot;</span>))</code></pre></div>
-<pre><code>## [1] &quot;25&quot;</code></pre>
-</section><section id="constructs-p1" class="slide level2">
-<h2>Constructs | p1</h2>
+</section><section id="structures" class="slide level2">
+<h2>Structures</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Vector</span>
-a&lt;-<span class="kw">c</span>(<span class="dv">25</span>, <span class="dv">30</span>)
+a =<span class="st"> </span><span class="kw">c</span>(<span class="dv">25</span>, <span class="dv">30</span>)
 
 <span class="co"># Matrix</span>
 <span class="kw">matrix</span>(a)</code></pre></div>
 <pre><code>##      [,1]
 ## [1,]   25
 ## [2,]   30</code></pre>
-</section><section id="constructs-p2" class="slide level2">
-<h2>Constructs | p2</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Data frame</span>
-<span class="kw">data.frame</span>(a,<span class="dt">b=</span>a<span class="op">/</span><span class="dv">5</span>,<span class="dt">c=</span>LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</code></pre></div>
+<span class="kw">data.frame</span>(a, <span class="dt">b =</span> a<span class="op">/</span><span class="dv">5</span>, <span class="dt">c =</span> LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</code></pre></div>
 <pre><code>##    a b c
 ## 1 25 5 A
 ## 2 30 6 B</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># List</span>
-<span class="kw">list</span>(<span class="dt">vector=</span>a, <span class="dt">matrix=</span><span class="kw">matrix</span>(a))</code></pre></div>
+<span class="kw">list</span>(<span class="dt">vector =</span> a, <span class="dt">matrix =</span> <span class="kw">matrix</span>(a))</code></pre></div>
 <pre><code>## $vector
 ## [1] 25 30
 ## 
@@ -596,38 +639,11 @@ a&lt;-<span class="kw">c</span>(<span class="dv">25</span>, <span class="dv">30<
 ##      [,1]
 ## [1,]   25
 ## [2,]   30</code></pre>
-</section><section id="subsetting-vectors" class="slide level2">
-<h2>Subsetting | Vectors</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>) <span class="co"># setup</span>
-a <span class="co"># visual check</span></code></pre></div>
-<pre><code>## [1] 14 16 17 19  4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="co"># row numbers</span></code></pre></div>
-<pre><code>## [1] 14 16</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a[a<span class="op">&lt;=</span><span class="dv">10</span>] <span class="co"># value filters</span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
-</section><section id="subsetting-data.frames-p1" class="slide level2">
-<h2>Subsetting | Data.frames p1</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">b =</span> LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>]) <span class="co"># setup</span>
-df[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,] <span class="co"># row numbers</span></code></pre></div>
-<pre><code>##   a b
-## 1 1 A
-## 2 2 B</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df<span class="op">$</span>a<span class="op">&lt;</span><span class="dv">2</span>,] <span class="co"># value filters</span></code></pre></div>
-<pre><code>##   a b
-## 1 1 A</code></pre>
-</section><section id="subsetting-data.frames-p2" class="slide level2">
-<h2>Subsetting | Data.frames p2</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df<span class="op">$</span>a<span class="op">&lt;</span><span class="dv">3</span>,<span class="dv">1</span>] <span class="co"># column filter</span></code></pre></div>
-<pre><code>## [1] 1 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df<span class="op">$</span>a<span class="op">&lt;</span><span class="dv">3</span>,<span class="dv">1</span>, drop=<span class="ot">FALSE</span>] <span class="co"># column filter (keep data.frame)</span></code></pre></div>
-<pre><code>##   a
-## 1 1
-## 2 2</code></pre>
 </section><section id="functions" class="slide level2">
 <h2>Functions</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define a function</span>
-showAsPercent&lt;-<span class="cf">function</span>(x) {
-  <span class="kw">paste0</span>(<span class="kw">round</span>(x<span class="op">*</span><span class="dv">100</span> ,<span class="dv">0</span>) ,<span class="st">&quot;%&quot;</span>)
+showAsPercent &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+    <span class="kw">paste0</span>(<span class="kw">round</span>(x <span class="op">*</span><span class="st"> </span><span class="dv">100</span>, <span class="dv">0</span>), <span class="st">&quot;%&quot;</span>)
 }
 
 <span class="co"># Call a function</span>
@@ -636,85 +652,67 @@ showAsPercent&lt;-<span class="cf">function</span>(x) {
 </section><section id="extending-r" class="slide level2">
 <h2>Extending R</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get a package</span>
-<span class="kw">install.packages</span>(<span class="st">&quot;caret&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;tibble&quot;</span>)
 
 <span class="co"># Activate a package</span>
-<span class="kw">library</span>(caret)</code></pre></div>
-</section><section id="what-does-r-look-like-oo" class="slide level2">
-<h2>What does R look like? | OO</h2>
+<span class="kw">library</span>(tibble)
+
+<span class="co"># Use the package as a namespace</span>
+tibble<span class="op">::</span><span class="kw">as.tibble</span>(a)</code></pre></div>
+</section><section id="base-similar-to-pandas" class="slide level2">
+<h2>Base (similar to pandas)</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">b =</span> LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])  <span class="co"># setup</span>
+df[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, ]  <span class="co"># row numbers</span></code></pre></div>
+<pre><code>##   a b
+## 1 1 A
+## 2 2 B</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df<span class="op">$</span>a <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>, ]  <span class="co"># value filters</span></code></pre></div>
+<pre><code>##   a b
+## 1 1 A</code></pre>
+</section><section id="base-similar-to-pandas-1" class="slide level2">
+<h2>Base (similar to pandas)</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df<span class="op">$</span>a <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>, <span class="dv">1</span>]  <span class="co"># column filter</span></code></pre></div>
+<pre><code>## [1] 1 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">df[df<span class="op">$</span>a <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>, <span class="dv">1</span>, drop =<span class="st"> </span><span class="ot">FALSE</span>]  <span class="co"># column filter (keep data.frame)</span></code></pre></div>
+<pre><code>##   a
+## 1 1
+## 2 2</code></pre>
+</section><section id="oo" class="slide level2">
+<h2>OO</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Orig OO (s3): cyclismo.org/tutorial/R/s3Classes.html</span>
 <span class="kw">library</span>(R6)
-Loan&lt;-<span class="kw">R6Class</span>(<span class="st">&quot;Loan&quot;</span>, 
-              <span class="dt">public=</span><span class="kw">list</span>(<span class="dt">term=</span><span class="ot">NA</span>
-                         ,<span class="dt">initialize=</span><span class="cf">function</span>(term){
-                           <span class="cf">if</span>(<span class="op">!</span><span class="kw">missing</span>(term)){ 
-                              self<span class="op">$</span>term&lt;-term 
-                              }} 
-                         ,<span class="dt">extendBy=</span><span class="cf">function</span>(ext){ 
-                            self<span class="op">$</span>term&lt;-self<span class="op">$</span>term<span class="op">+</span>ext
-                            }))</code></pre></div>
-</section><section id="what-does-r-look-like-oo-1" class="slide level2">
-<h2>What does R look like? | OO</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">acc&lt;-Loan<span class="op">$</span><span class="kw">new</span>(<span class="dv">36</span>)
+Loan &lt;-<span class="st"> </span><span class="kw">R6Class</span>(<span class="st">&quot;Loan&quot;</span>, <span class="dt">public =</span> <span class="kw">list</span>(<span class="dt">term =</span> <span class="ot">NA</span>, <span class="dt">initialize =</span> <span class="cf">function</span>(term) {
+    <span class="cf">if</span> (<span class="op">!</span><span class="kw">missing</span>(term)) {
+        self<span class="op">$</span>term &lt;-<span class="st"> </span>term
+    }
+}, <span class="dt">extendBy =</span> <span class="cf">function</span>(ext) {
+    self<span class="op">$</span>term &lt;-<span class="st"> </span>self<span class="op">$</span>term <span class="op">+</span><span class="st"> </span>ext
+}))</code></pre></div>
+</section><section id="oo-1" class="slide level2">
+<h2>OO</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">acc &lt;-<span class="st"> </span>Loan<span class="op">$</span><span class="kw">new</span>(<span class="dv">36</span>)
 acc<span class="op">$</span><span class="kw">extendBy</span>(<span class="dv">6</span>)
 acc<span class="op">$</span>term</code></pre></div>
 <pre><code>## [1] 42</code></pre>
-</section></section>
-<section><section id="building-up-an-r-script" class="titleslide slide level1"><h1>Building up an R script</h1></section><section id="commands-magrittr" class="slide level2">
-<h2>Commands | magrittr</h2>
-<p>magrittr allows you to pass one thing into another instead of writing lots of brackets</p>
+</section><section id="functional" class="slide level2">
+<h2>Functional</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(magrittr)
-<span class="co"># Typical</span>
-<span class="kw">pairs</span>(iris)
-<span class="kw">pairs</span>(<span class="kw">tail</span>(iris))
-<span class="kw">pairs</span>(<span class="kw">tail</span>(iris,<span class="kw">nrow</span>(iris)<span class="op">/</span><span class="dv">5</span>))
-
-<span class="co"># Pipe</span>
-iris <span class="op">%&gt;%</span><span class="st"> </span>pairs
-iris <span class="op">%&gt;%</span><span class="st"> </span>tail <span class="op">%&gt;%</span><span class="st"> </span>pairs
-iris <span class="op">%&gt;%</span><span class="st"> </span>{<span class="kw">tail</span>(.,<span class="kw">nrow</span>(.)<span class="op">/</span><span class="dv">5</span>)} <span class="op">%&gt;%</span><span class="st"> </span>pairs</code></pre></div>
-</section><section id="commands-dplyr" class="slide level2">
-<h2>Commands | dplyr</h2>
-<p>Use <code>dplyr</code> to transform your datasets</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-iris <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">filter</span>(Petal.Width<span class="op">&lt;</span><span class="dv">2</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise_each</span>(<span class="kw">funs</span>(mean))</code></pre></div>
-<pre><code>## `summarise_each()` is deprecated.
-## Use `summarise_all()`, `summarise_at()` or `summarise_if()` instead.
-## To map `funs` over all variables, use `summarise_all()`</code></pre>
+iris <span class="op">%&gt;%</span><span class="st"> </span>{
+    <span class="kw">tail</span>(., <span class="kw">nrow</span>(.)<span class="op">/</span><span class="dv">5</span>)
+} <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pairs</span>()</code></pre></div>
+<p><img src="r101_files/figure-revealjs/unnamed-chunk-15-1.png" width="768" /></p>
+</section><section id="functional-1" class="slide level2">
+<h2>Functional</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(Petal.Width <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Species) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise_all</span>(mean)</code></pre></div>
 <pre><code>## # A tibble: 3 x 5
 ##   Species    Sepal.Length Sepal.Width Petal.Length Petal.Width
 ##   &lt;fct&gt;             &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
 ## 1 setosa             5.01        3.43         1.46       0.246
 ## 2 versicolor         5.94        2.77         4.26       1.33 
 ## 3 virginica          6.34        2.79         5.32       1.76</code></pre>
-</section><section id="read-data-csv-excel" class="slide level2">
-<h2>Read data | CSV &amp; Excel</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-OrderData&lt;-<span class="kw">read_csv</span>(<span class="st">&quot;Order.csv&quot;</span>)
-
-<span class="kw">library</span>(readxl)
-OrderData&lt;-<span class="kw">read_sheet</span>(<span class="st">&quot;Order.xlsx&quot;</span>,<span class="st">&quot;Orders&quot;</span>)</code></pre></div>
-</section><section id="read-data-databases" class="slide level2">
-<h2>Read data | Databases</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(RODBC)
-azure &lt;-<span class="st"> </span><span class="kw">odbcDriverConnect</span>(
-  <span class="st">&quot;Driver={SQL Server Native Client 11.0};</span>
-<span class="st">  Server=mhknbn2kdz.database.windows.net;</span>
-<span class="st">  Database=AdventureWorks2012;</span>
-<span class="st">  Uid=sqlfamily;</span>
-<span class="st">  Pwd=sqlf@m1ly;&quot;</span>)
-
-Order    &lt;-<span class="st"> </span><span class="kw">sqlQuery</span>( azure, 
-            <span class="st">&quot;SELECT * FROM [Sales].[SalesOrderHeader]&quot;</span>)</code></pre></div>
-</section><section id="write-data-csv" class="slide level2">
-<h2>Write data | CSV</h2>
-<p>This is easiest and most portable option</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(iris,<span class="st">&quot;iris.csv&quot;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</code></pre></div>
-</section><section id="script-best-practices" class="slide level2">
-<h2>Script best practices</h2>
+</section><section id="best-practices" class="slide level2">
+<h2>Best practices</h2>
 <ul>
 <li>Make sure to declare packages using <code>library()</code> at the top of the script</li>
 <li>Label sections of work using <code># ---- SectionName ----</code> to allow you to pick up the code into a LaTeX or markdown doc later</li>
@@ -723,55 +721,6 @@ Order    &lt;-<span class="st"> </span><span class="kw">sqlQuery</span>( azure,
 <li>Try to do all data manipulation at the top of the script</li>
 <li>Reuse your code by writing functions for anything you do frequently</li>
 </ul>
-<!--
-# Apply some models to your data
-
-## Some common models
-
-```r
-# linear models (inc. logistic)
-glm(data=iris, Sepal.Width~Sepal.Length)
-
-# k-means clustering
-kmeans(iris[,1:4],centers = 3)
-```
-
-## Sampling
-
-```r
-library(caret)
-sampleRecords<-createDataPartition(iris$Species
-                                   , groups = 2, p = 0.7)$Resample1
-irisTraining<-iris[sampleRecords,]
-irisHoldout<-iris[-sampleRecords,]
-```
-
-## Extracting predictions
-
-```r
-# linear models (inc. logistic)
-myModel<-glm(data=irisTraining, Sepal.Width~Sepal.Length)
-
-# predictions for training sample
-myModel$fitted.values
-
-# predictions for a new set of data
-predict(myModel,irisHoldout)
-```
-
-## More info
-- There is a lot of documentation out there on stats in R
-- Use [Cross Validated](http://stats.stackexchange.com/) for stats questions
-- The package `caret` is really powerful and provides an interface to lots of statistical methods and utilities.
--->
-</section></section>
-<section><section id="best-practices" class="titleslide slide level1"><h1>“Best” practices</h1></section><section id="charts" class="slide level2">
-<h2>Charts</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">ggplot</span>(<span class="dt">data=</span>iris, 
-       <span class="kw">aes</span>(<span class="dt">x=</span>Sepal.Width, <span class="dt">y=</span>Sepal.Length, <span class="dt">colour=</span>Species)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() </code></pre></div>
-<p><img src="r101_files/figure-revealjs/unnamed-chunk-25-1.png" width="768" /></p>
 </section><section id="documentation" class="slide level2">
 <h2>Documentation</h2>
 <p>Document as you go!</p>
@@ -782,9 +731,6 @@ predict(myModel,irisHoldout)
 <li>Load your main R file up and use the labels from <code># ---- SectionName ----</code> to save repetition</li>
 <li>Present in HTML, slide decks, PDF, Word at the click of a button</li>
 </ul>
-</section><section id="interactive-reports" class="slide level2">
-<h2>Interactive reports</h2>
-<p>Consider doing a <code>shiny</code> application that explores the data and findings</p>
 </section><section id="workflow-best-practices" class="slide level2">
 <h2>Workflow best practices</h2>
 <ul>
@@ -797,27 +743,140 @@ predict(myModel,irisHoldout)
 <li>Use Rstudio</li>
 <li>Consider structuring as a package</li>
 </ul>
+</section><section id="next-steps" class="slide level2">
+<h2>Next steps</h2>
+<ul>
+<li>geni.us/rfundamentals</li>
+<li>notebooks.azure.com/stephlocke/libraries</li>
+<li><h1 id="rstats">rstats</h1></li>
+<li>datacamp.com</li>
+<li>r-bloggers.com</li>
+</ul>
 </section></section>
-<section><section id="next-steps" class="titleslide slide level1"><h1>Next steps</h1></section><section id="find-out-more" class="slide level2">
-<h2>Find out more</h2>
-<h3 id="online">Online</h3>
+<section><section id="how-you-can-help-r-users-improve-their-code" class="titleslide slide level1"><h1>How you can help R users improve their code</h1></section><section id="building-packages" class="slide level2">
+<h2>Building packages</h2>
+<p>github.com/lockedata/pRojects geni.us/rpkgs</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;lockedata/projects&quot;</span>)
+pRojects<span class="op">::</span><span class="kw">createPackageProject</span>()</code></pre></div>
+</section><section id="writing-tests" class="slide level2">
+<h2>Writing tests</h2>
 <ul>
-<li>Modern R <a href="http://datacamp.com">DataCamp</a></li>
-<li>Statistics R <a href="https://www.coursera.org/specialization/jhudatascience">Coursera</a></li>
-<li><a href="http://www.r-bloggers.com/">R-bloggers</a></li>
-<li><a href="http://adv-r.had.co.nz/">Advanced R programming</a></li>
-<li><a href="http://r-pkgs.had.co.nz/">Writing R packages</a></li>
+<li>testthat</li>
+<li>stubthat</li>
+<li>mockr</li>
 </ul>
-<h3 id="in-person">In-person</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(testthat)
+<span class="kw">context</span>(<span class="st">&quot;Some thing I want to test&quot;</span>)
+<span class="kw">test_that</span>(<span class="st">&quot;things make sense&quot;</span>, <span class="kw">expect_equal</span>(<span class="dv">1</span>, <span class="dv">1</span>))</code></pre></div>
+</section><section id="code-coverage" class="slide level2">
+<h2>Code coverage</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(covr)
+<span class="st">`</span><span class="dt">?</span><span class="st">`</span>(package_coverage)
+<span class="st">`</span><span class="dt">?</span><span class="st">`</span>(codecov)</code></pre></div>
+</section><section id="continuous-integration" class="slide level2">
+<h2>Continuous integration</h2>
 <ul>
-<li>R user groups e.g. <a href="http://www.londonr.org/">LondonR</a></li>
-<li>Conferences e.g. <a href="http://www.earl-conference.com/">EARL</a>, <a href="http://sqlrelay.co.uk">SQL Relay</a></li>
+<li>Travis CI</li>
 </ul>
-</section><section id="get-this-presentation" class="slide level2">
-<h2>Get this presentation</h2>
-<p>This presentation is available on <a href="https://github.com/stephlocke/Rtraining">github.com/stephlocke/Rtraining</a>. All the code is available for you to take a copy and play with to help you learn on the go.</p>
-<p>If you have any questions, contact me!</p>
-<p><a href="http://itsalocke.com">itsalocke.com</a> | <a href="https://github.com/StephLocke">github.com/StephLocke</a> | <a href="https://twitter.com/stefflocke">@SteffLocke</a></p>
+</section></section>
+<section><section id="how-r-users-can-consume-your-code" class="titleslide slide level1"><h1>How R users can consume your code</h1></section><section id="javascript" class="slide level2">
+<h2>JavaScript</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(V8)
+ct &lt;-<span class="st"> </span><span class="kw">v8</span>()
+ct<span class="op">$</span><span class="kw">eval</span>(<span class="st">&quot;var foo = 123&quot;</span>)
+ct<span class="op">$</span><span class="kw">eval</span>(<span class="st">&quot;var bar = 456&quot;</span>)
+ct<span class="op">$</span><span class="kw">eval</span>(<span class="st">&quot;foo + bar&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;579&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ct<span class="op">$</span><span class="kw">source</span>(<span class="kw">system.file</span>(<span class="st">&quot;js/underscore.js&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;V8&quot;</span>))
+ct<span class="op">$</span><span class="kw">call</span>(<span class="st">&quot;_.filter&quot;</span>, mtcars, <span class="kw">JS</span>(<span class="st">&quot;function(x){return x.mpg &lt; 15}&quot;</span>))</code></pre></div>
+<pre><code>##                      mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Duster 360          14.3   8  360 245 3.21 3.570 15.84  0  0    3    4
+## Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8  440 230 3.23 5.345 17.42  0  0    3    4
+## Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0  0    3    4</code></pre>
+</section><section id="python" class="slide level2">
+<h2>Python</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reticulate)
+main &lt;-<span class="st"> </span><span class="kw">import_main</span>()
+builtins &lt;-<span class="st"> </span><span class="kw">import_builtins</span>()
+builtins<span class="op">$</span><span class="kw">print</span>(<span class="st">&quot;foo&quot;</span>)
+<span class="kw">py_run_string</span>(<span class="st">&quot;x = 10&quot;</span>)
+<span class="co"># access the python main module via the &#39;py&#39; object</span>
+py<span class="op">$</span>x</code></pre></div>
+<pre><code>## [1] 10</code></pre>
+</section><section id="apis" class="slide level2">
+<h2>APIs</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(httr)
+<span class="st">&quot;https://foaas.com/version&quot;</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">GET</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">content</span>()</code></pre></div>
+<pre><code>## $message
+## [1] &quot;Version 2.0.0&quot;
+## 
+## $subtitle
+## [1] &quot;FOAAS&quot;</code></pre>
+</section></section>
+<section><section id="how-you-can-get-r-code-into-production" class="titleslide slide level1"><h1>How you can get R code into production</h1></section><section id="plumber" class="slide level2">
+<h2>plumber</h2>
+<p>rplumber.io</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#&#39; Echo the parameter that was sent in</span>
+<span class="co">#&#39; @param msg The message to echo back.</span>
+<span class="co">#&#39; @get /echo</span>
+<span class="cf">function</span>(<span class="dt">msg =</span> <span class="st">&quot;&quot;</span>) {
+    <span class="kw">list</span>(<span class="dt">msg =</span> <span class="kw">paste0</span>(<span class="st">&quot;The message is: &#39;&quot;</span>, msg, <span class="st">&quot;&#39;&quot;</span>))
+}</code></pre></div>
+</section><section id="opencpu" class="slide level2">
+<h2>opencpu</h2>
+<ul>
+<li>opencpu.org</li>
+<li>jsfiddle.net/user/opencpu/fiddles/</li>
+</ul>
+</section><section id="docker" class="slide level2">
+<h2>docker</h2>
+<ul>
+<li>containerit</li>
+<li>rize</li>
+<li>liftr</li>
+</ul>
+</section><section id="hadoopish" class="slide level2">
+<h2>Hadoop(ish)</h2>
+<ul>
+<li>sparklyr</li>
+<li>ML Server</li>
+<li>Jupyter</li>
+</ul>
+</section><section id="microsoft" class="slide level2">
+<h2>Microsoft</h2>
+<ul>
+<li>SQL Server sp_execute_external_script()</li>
+<li>ML server</li>
+<li>Azure ML Studio</li>
+<li>Power BI</li>
+</ul>
+</section><section id="shiny" class="slide level2">
+<h2>Shiny</h2>
+<ul>
+<li>shinyserver</li>
+<li>shinyapps.io</li>
+<li>shinyproxy.io</li>
+</ul>
+</section></section>
+<section><section id="thank-you" class="titleslide slide level1"><h1>Thank you!</h1></section><section id="covered" class="slide level2">
+<h2>Covered</h2>
+<ul>
+<li>Why you should know R</li>
+<li>What are the ways you can write R</li>
+<li>How you can help R users improve their code</li>
+<li>How R users can consume your code</li>
+<li>How you can get R code into production</li>
+</ul>
+</section><section id="follow-up" class="slide level2">
+<h2>Follow up</h2>
+<ul>
+<li>itsalocke.com/talks</li>
+<li>geni.us/rfundamentals</li>
+<li>t: <span class="citation" data-cites="theStephLocke">@theStephLocke</span></li>
+<li>t: <span class="citation" data-cites="LockeData">@LockeData</span></li>
+</ul>
 </section></section>
     </div>
   </div>
